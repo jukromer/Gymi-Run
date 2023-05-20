@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D body;
+    [SerializeField] private Transform player;
     [SerializeField] private float speed; //7 war gut
     [SerializeField] private float jumpHeight; //12 war gut
     public float airspeed = 1.0F; //0.5
@@ -21,14 +22,24 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        float horizontalInput = Input.GetAxis("Horizontal");
+        body.velocity = new Vector2(horizontalInput * (speed * airspeed), body.velocity.y);
+        
+        //Flip Player accoring to direction
+        if(horizontalInput > 0.01F)
         {
-            body.velocity = new Vector2(Input.GetAxis("Horizontal") * (speed * airspeed), body.velocity.y);
-            
-            if (onGround && Input.GetKeyDown(KeyCode.Space))
-            {
-                Jump();
-            }
-        }   
+            transform.localScale = Vector3.one;
+        }
+        else if(horizontalInput < -0.01F)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+
+        if (onGround && Input.GetKeyDown(KeyCode.Space))
+        {
+            Jump();
+        } 
+          
     }
 
     private void Jump()
