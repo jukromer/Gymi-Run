@@ -41,12 +41,12 @@ public class MovingTable : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     { 
-        collision.collider.transform.SetParent(transform, true);
+        collision.transform.SetParent(transform);
         
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {   
-        collision.collider.transform.SetParent(null);
+        collision.transform.SetParent(null);
     }
 }
