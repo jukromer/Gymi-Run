@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public float airspeed = 1.0F; //0.5
     private int jumpCount = 0;
     private BoxCollider2D boxCollider;
+    public Animator animator;
     
 
     private void Awake()
@@ -28,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         body.velocity = new Vector2(horizontalInput * (speed * airspeed), body.velocity.y);
         
+        animator.SetFloat("Speed", Mathf.Abs(horizontalInput));
         //Flip Player accoring to direction
         if(horizontalInput > 0.01F)
         {
