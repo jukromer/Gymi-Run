@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
         body.drag = 0;
         body.angularDrag = 0;
         boxCollider = GetComponent<BoxCollider2D>();
+
     }
 
     private void Update()
@@ -43,28 +44,44 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {   
             Jump();
+            
         } 
+        if(isGrounded())
+        {
+            animator.SetBool("IsJumping", false);
+            animator.SetBool("IsDoubleJumping", false);
+
+        }
+        else
+        {
+            animator.SetBool("IsJumping", true);
+        }
         
         
     }
 
     private void Jump()
-    {   
-        
+    {     
         
         if(jumpCount == 0 && isGrounded())
-            {
-                body.velocity = new Vector2(body.velocity.x, jumpHeight);
-                jumpCount++;
-                airspeed = 1.2F;
-            }            
+        {
+            body.velocity = new Vector2(body.velocity.x, jumpHeight);
+            jumpCount++;
+            airspeed = 1.2F;
+        }            
         else if(jumpCount == 1)
-            {
-                body.velocity = new Vector2(body.velocity.x, jumpHeight);
-                airspeed = 0.8F;
-                jumpCount = 0; 
-            }
+        {
+            DoubleJump();
+        }
         
+    }
+
+    private void DoubleJump()
+    {
+        //animator.SetBool("IsDoubleJumping", true); will nicht so recht
+        body.velocity = new Vector2(body.velocity.x, jumpHeight);
+        airspeed = 0.8F;
+        jumpCount = 0;   
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -78,9 +95,5 @@ public class PlayerMovement : MonoBehaviour
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.1f, groundLayer);
         return raycastHit.collider != null;
     }
-
-    
-
-
-    
+   
 }
