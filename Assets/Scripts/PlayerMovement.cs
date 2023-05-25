@@ -40,48 +40,43 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.localScale = new Vector3(-1, 1, 1);
         }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {   
-            Jump();
-            
-        } 
+        
         if(isGrounded())
         {
             animator.SetBool("IsJumping", false);
             animator.SetBool("IsDoubleJumping", false);
-
-        }
-        else
-        {
-            animator.SetBool("IsJumping", true);
-        }
+            jumpCount = 0;
+        } 
         
+        if (Input.GetKeyDown(KeyCode.Space))
+        {   
+            if(jumpCount == 0)
+            {
+                animator.SetBool("IsJumping", true);
+                Jump();
+            }
+            else
+            {
+                animator.SetBool("IsDoubleJumping", true);
+                DoubleJump();
+            }
+        }
         
     }
 
     private void Jump()
     {     
         
-        if(jumpCount == 0 && isGrounded())
-        {
-            body.velocity = new Vector2(body.velocity.x, jumpHeight);
-            jumpCount++;
-            airspeed = 1.2F;
-        }            
-        else if(jumpCount == 1)
-        {
-            DoubleJump();
-        }
-        
+        body.velocity = new Vector2(body.velocity.x, jumpHeight);
+        jumpCount++;
+        airspeed = 1.2F;          
     }
 
     private void DoubleJump()
-    {
-        //animator.SetBool("IsDoubleJumping", true); will nicht so recht
+    { 
+        
         body.velocity = new Vector2(body.velocity.x, jumpHeight);
         airspeed = 0.8F;
-        jumpCount = 0;   
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
