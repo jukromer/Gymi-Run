@@ -1,3 +1,39 @@
+
+
+
+
+
+
+
+
+
+
+//Das ist das PlayerMovement_BackUp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,21 +46,19 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpHeight; //12 war gut
     [SerializeField] private LayerMask groundLayer;
     public float airspeed = 1.0F; //0.5
-    public int jumpCount = 0;
+    private int jumpCount = 0;
     private BoxCollider2D boxCollider;
     public Animator animator;
-    public float fallGravityScale = 4f;
-    public float gravityScale = 3f;
     
 
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
-        body.gravityScale = gravityScale;
+        body.gravityScale = 3;
         body.drag = 0;
         body.angularDrag = 0;
         boxCollider = GetComponent<BoxCollider2D>();
-        animator.updateMode = AnimatorUpdateMode.UnscaledTime;
+
     }
 
     private void Update()
@@ -45,20 +79,14 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {   
-            if(isGrounded() && jumpCount == 0)
-            {              
-                jumpCount++;
-                Jump();  
-            }
-            else if(jumpCount == 1)
-            {   
-                DoubleJump();
-            }
-        }
-
+            Jump();
+            
+        } 
         if(isGrounded())
         {
             animator.SetBool("IsJumping", false);
+            animator.SetBool("IsDoubleJumping", false);
+
         }
         else
         {
@@ -68,37 +96,33 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
-    private void FixedUpdate() 
-    {
-        if(body.velocity.y < 0)
-        {
-            body.gravityScale = fallGravityScale; 
-        }
-        else
-        {
-            body.gravityScale = gravityScale;
-        }   
-    }
-
     private void Jump()
     {     
-        body.velocity = new Vector2(body.velocity.x, jumpHeight);
-        airspeed = 1.2F;        
+        
+        if(jumpCount == 0 && isGrounded())
+        {
+            body.velocity = new Vector2(body.velocity.x, jumpHeight);
+            jumpCount++;
+            airspeed = 1.2F;
+        }            
+        else if(jumpCount == 1)
+        {
+            DoubleJump();
+        }
+        
     }
 
     private void DoubleJump()
     {
+        //animator.SetBool("IsDoubleJumping", true); will nicht so recht
         body.velocity = new Vector2(body.velocity.x, jumpHeight);
         airspeed = 0.8F;
-        jumpCount = 0;
+        jumpCount = 0;   
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("Ground"))
-        {
-            jumpCount = 0;
-        }
+
     }
 
 
