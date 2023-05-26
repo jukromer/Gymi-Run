@@ -388,6 +388,8 @@ GameObject:
   - component: {fileID: 338426808}
   - component: {fileID: 338426807}
   - component: {fileID: 338426812}
+  - component: {fileID: 338426814}
+  - component: {fileID: 338426813}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -511,6 +513,35 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.1576972, y: 1.4664483}
   m_EdgeRadius: 0
+--- !u!114 &338426813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 338426806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed8b1ae4e4e52b34ea557c1c11e076fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CategoryHash: 0
+  m_labelHash: 0
+  m_SpriteKey: 1.07857285e-26
+--- !u!114 &338426814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 338426806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c29cff538c195c249b69c6f2236de67b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Library: []
+  m_SpriteLibraryAsset: {fileID: 7108339969198208228, guid: ccda5df23dac4784ebbc5c1857db9aae, type: 3}
 --- !u!1 &477704292
 GameObject:
   m_ObjectHideFlags: 0

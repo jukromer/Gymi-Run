@@ -31,7 +31,6 @@ public class PlayerMovement : MonoBehaviour
     {
         float horizontalInput = Input.GetAxis("Horizontal");
         body.velocity = new Vector2(horizontalInput * (speed * airspeed), body.velocity.y);
-        
         animator.SetFloat("Speed", Mathf.Abs(horizontalInput));
         //Flip Player accoring to direction
         if(horizontalInput > 0.01F)
