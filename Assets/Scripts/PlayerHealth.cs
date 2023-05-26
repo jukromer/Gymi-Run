@@ -8,10 +8,13 @@ public class PlayerHealth : MonoBehaviour
     public int currentHealth;
     public int maxHealth;
     public PlayerUI playerUI;
+    public Transform playerSpawn;
+    private Vector2 SpawnPos;
     
     void Start()
     {
-        currentHealth = maxHealth;       
+        currentHealth = maxHealth;
+        SpawnPos = playerSpawn.position;        
     }
 
     // Update is called once per frame
@@ -24,7 +27,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if(currentHealth - amount <= 0)
         {
-            Destroy(gameObject);
+            playerSpawn.position = SpawnPos;
             playerUI.amountHealth.text = "0";
         }
         else

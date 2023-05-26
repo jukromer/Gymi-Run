@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     private int jumpCount = 0;
     private BoxCollider2D boxCollider;
     public Animator animator;
+    public bool allowedToJump = true;
     
 
     private void Awake()
@@ -22,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
         body.drag = 0;
         body.angularDrag = 0;
         boxCollider = GetComponent<BoxCollider2D>();
-
+        animator.updateMode = AnimatorUpdateMode.UnscaledTime;
     }
 
     private void Update()
@@ -40,43 +41,43 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.localScale = new Vector3(-1, 1, 1);
         }
-        
-        if(isGrounded())
-        {
-            animator.SetBool("IsJumping", false);
-            animator.SetBool("IsDoubleJumping", false);
-            jumpCount = 0;
-        } 
-        
+
         if (Input.GetKeyDown(KeyCode.Space))
         {   
-            if(jumpCount == 0)
-            {
-                animator.SetBool("IsJumping", true);
-                Jump();
+            if(isGrounded() && jumpCount == 0)
+            {              
+                jumpCount++;
+                Jump();  
             }
-            else
-            {
-                animator.SetBool("IsDoubleJumping", true);
+            else if(jumpCount == 1)
+            {   
                 DoubleJump();
+                jumpCount = 0;
             }
         }
+        
         
     }
 
     private void Jump()
     {     
-        
+
+        animator.SetBool("IsJumping", true);
         body.velocity = new Vector2(body.velocity.x, jumpHeight);
-        jumpCount++;
-        airspeed = 1.2F;          
+        airspeed = 1.2F;
+        
+             
     }
 
     private void DoubleJump()
     { 
-        
+        animator.SetBool("IsJumping", false);
+        animator.SetBool("IsDoubleJumping", true);
         body.velocity = new Vector2(body.velocity.x, jumpHeight);
         airspeed = 0.8F;
+        jumpCount = 0;
+        
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

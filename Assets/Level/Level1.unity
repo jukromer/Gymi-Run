@@ -431,6 +431,7 @@ MonoBehaviour:
   currentHealth: 0
   maxHealth: 3
   playerUI: {fileID: 338426810}
+  playerSpawn: {fileID: 338426811}
 --- !u!114 &338426809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -451,6 +452,7 @@ MonoBehaviour:
     m_Bits: 64
   airspeed: 1
   animator: {fileID: 1957684660}
+  allowedToJump: 1
 --- !u!114 &338426810
 MonoBehaviour:
   m_ObjectHideFlags: 0
