@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
     public float fallGravityScale = 4f;
     public float gravityScale = 3f;
+    public  bool IsGrounded = true;
     
 
     private void Awake()
@@ -42,10 +43,11 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = new Vector3(-1, 1, 1);
         }
 
+
         if (Input.GetKeyDown(KeyCode.Space))
         {   
-            if(isGrounded() && jumpCount == 0)
-            {              
+            if(IsGrounded && jumpCount == 0)
+            {   IsGrounded = false;           
                 jumpCount++;
                 Jump();  
             }
@@ -53,18 +55,7 @@ public class PlayerMovement : MonoBehaviour
             {   
                 DoubleJump();
             }
-        }
-
-        if(isGrounded())
-        {
-            animator.SetBool("IsJumping", false);
-        }
-        else
-        {
-            animator.SetBool("IsJumping", true);
-        }
-        
-        
+        }   
     }
 
     private void FixedUpdate() 
@@ -80,13 +71,16 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void Jump()
-    {     
+    {  
+        animator.SetBool("IsJumping", true);
         body.velocity = new Vector2(body.velocity.x, jumpHeight);
         airspeed = 1.2F;        
     }
 
     private void DoubleJump()
     {
+        animator.SetBool("IsDoubleJumping", true);
+        animator.SetBool("IsJumping", false);
         body.velocity = new Vector2(body.velocity.x, jumpHeight);
         airspeed = 0.8F;
         jumpCount = 0;
@@ -96,7 +90,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Ground"))
         {
+            IsGrounded = true;
             jumpCount = 0;
+            animator.SetBool("IsJumping", false);
+            animator.SetBool("IsDoubleJumping", false);
         }
     }
 
