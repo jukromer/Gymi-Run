@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5e6fedc2472449cead18ef23b5cb30d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Library:
+  - m_Name: HEAD
+    m_Hash: 291904296
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: head
+      m_Hash: 670299804
+      m_Sprite: {fileID: 550688713756049901, guid: fc339e04359137c448b4403133e4d77d, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 550688713756049901, guid: fc339e04359137c448b4403133e4d77d, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 1
+  - m_Name: BODY
+    m_Hash: 759031302
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: body
+      m_Hash: 463997874
+      m_Sprite: {fileID: -1784244095383712961, guid: fc339e04359137c448b4403133e4d77d, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1784244095383712961, guid: fc339e04359137c448b4403133e4d77d, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 1
+  - m_Name: R.ARM
+    m_Hash: 899962551
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: r.arm
+      m_Hash: 583154489
+      m_Sprite: {fileID: 7912392979518079295, guid: fc339e04359137c448b4403133e4d77d, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 7912392979518079295, guid: fc339e04359137c448b4403133e4d77d, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 1
+  - m_Name: L.ARM
+    m_Hash: 712277844
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: l.arm
+      m_Hash: 1024594650
+      m_Sprite: {fileID: 7009493716331074628, guid: fc339e04359137c448b4403133e4d77d, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 7009493716331074628, guid: fc339e04359137c448b4403133e4d77d, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 1
+  - m_Name: R.LEG
+    m_Hash: 405448812
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: r.leg
+      m_Hash: 256689634
+      m_Sprite: {fileID: -100165206493762269, guid: fc339e04359137c448b4403133e4d77d, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -100165206493762269, guid: fc339e04359137c448b4403133e4d77d, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 1
+  - m_Name: L.LEG
+    m_Hash: 133857679
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: l.leg
+      m_Hash: 278719489
+      m_Sprite: {fileID: -664128909034593504, guid: fc339e04359137c448b4403133e4d77d, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -664128909034593504, guid: fc339e04359137c448b4403133e4d77d, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 1
+  m_PrimaryLibraryGUID: 
