@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
         body.drag = 0;
         body.angularDrag = 0;
         boxCollider = GetComponent<BoxCollider2D>();
+        animator  = PlayerManager.CharacterAnimator;
         animator.updateMode = AnimatorUpdateMode.UnscaledTime;
     }
 

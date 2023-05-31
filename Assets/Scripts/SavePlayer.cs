@@ -17,7 +17,6 @@ public class SavePlayer : MonoBehaviour
 
     public void setCharacterName(string newName)
     {
-        Debug.Log(newName);
         PlayerManager.CharacterName = newName;
     }
 
