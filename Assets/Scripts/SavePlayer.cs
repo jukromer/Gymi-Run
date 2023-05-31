@@ -1,29 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SavePlayer : MonoBehaviour
 {
-    public static Transform player;
-    public static Animator animator;
-
-    public void setSavePlayer(Transform newPlayer)
+    void Start()
     {
-        player = newPlayer;
+
     }
 
-    public Transform getPlayer()
+    void Update()
     {
-        return player;
+        
     }
 
-    public void setAnimator(Animator newAnimator)
+    public void setCharacterName(string newName)
     {
-        animator = newAnimator;
+        Debug.Log(newName);
+        PlayerManager.CharacterName = newName;
     }
 
-    public Animator getAnimnator()
+    public void switchScene()
     {
-        return animator;
+        SceneManager.LoadScene("Level1");
     }
 }
