@@ -8,5 +8,6 @@ public class GetPlayerAnimator : MonoBehaviour
     void Start()
     {
         PlayerManager.CharacterAnimator = animator;
+        //Debug.Log(PlayerManager.CharacterAnimator + "," + this);
     }
 }

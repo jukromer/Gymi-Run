@@ -524,7 +524,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de9e560f9b24e454eb8a0c03cf6d5e59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetTag: 
+  targetName: 
   parentObject: {fileID: 338426811}
 --- !u!1 &477704292
 GameObject:
@@ -623,7 +623,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8653719598885068355, guid: 1bf4c0fd7e8664365b895042c7ff7169, type: 3}
       propertyPath: m_TagString
-      value: Pascal
+      value: PlayerSprite
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 1bf4c0fd7e8664365b895042c7ff7169, type: 3}
       propertyPath: m_RootOrder
@@ -1353,7 +1353,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8653719598885068355, guid: fc339e04359137c448b4403133e4d77d, type: 3}
       propertyPath: m_TagString
-      value: Werber
+      value: PlayerSprite
       objectReference: {fileID: 0}
     - target: {fileID: -8244691016477402259, guid: fc339e04359137c448b4403133e4d77d, type: 3}
       propertyPath: m_LocalPosition.x

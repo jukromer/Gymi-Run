@@ -6,23 +6,25 @@ using UnityEngine.SceneManagement;
 
 public class LoadPlayer : MonoBehaviour
 {
-    public string targetTag; // Das Tag des GameObjects, das Sie suchen möchten
+    public string targetName; // Das Tag des GameObjects, das Sie suchen möchten
     public Transform parentObject; // Das GameObject, dem das gesuchte GameObject als Child hinzugefügt werden soll
 
     void Start()
     {
-        targetTag = PlayerManager.CharacterName;
-        GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag(targetTag);
+        targetName = PlayerManager.CharacterName;
+        GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag("PlayerSprite");
+        for(int i = 0; i < objectsWithTag.Length; i++)
+        {
+            if(objectsWithTag[i].name != targetName)
+            {
+                objectsWithTag[i].SetActive(false);
+            }
+            else
+            {
+                objectsWithTag[i].SetActive(true);
+                objectsWithTag[i].transform.SetParent(parentObject);
+            }
+        }
 
-        if (objectsWithTag.Length > 0)
-        {
-            GameObject targetObject = objectsWithTag[0];
-            targetObject.SetActive(true);
-            targetObject.transform.SetParent(parentObject);
-        }
-        else
-        {
-            Debug.LogError("No GameObject found with the tag: " + targetTag);
-        }
     }
 }

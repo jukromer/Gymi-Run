@@ -25,12 +25,20 @@ public class PlayerMovement : MonoBehaviour
         body.drag = 0;
         body.angularDrag = 0;
         boxCollider = GetComponent<BoxCollider2D>();
-        animator  = PlayerManager.CharacterAnimator;
         animator.updateMode = AnimatorUpdateMode.UnscaledTime;
     }
 
     private void Update()
     {
+        if(PlayerManager.CharacterAnimator != null)
+        {
+            animator  = PlayerManager.CharacterAnimator;
+            //Debug.Log(PlayerManager.CharacterAnimator + "," + this);
+        }
+        else
+        {
+            print("No ANimator found");
+        }
         float horizontalInput = Input.GetAxis("Horizontal");
         body.velocity = new Vector2(horizontalInput * (speed * airspeed), body.velocity.y);
         animator.SetFloat("Speed", Mathf.Abs(horizontalInput));
