@@ -10,32 +10,64 @@ public class MovingTable : MonoBehaviour
     private float leftEdge;
     private float rightEdge;
 
+    [SerializeField] bool horizontal;
+    bool movingDown;
+    float topEdge;
+    float bottomEdge;
+
     void Start()
     {
         leftEdge = transform.position.x - movementDistance;
         rightEdge = transform.position.x + movementDistance;
+
+        bottomEdge = transform.position.y - movementDistance;
+        topEdge = transform.position.y + movementDistance;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(movingLeft)
+        if(horizontal)
         {
-            if(transform.position.x > leftEdge)
+            if(movingLeft)
             {
-                transform.position = new Vector3(transform.position.x - speed * Time.deltaTime, transform.position.y, transform.position.z); 
+                if(transform.position.x > leftEdge)
+                {
+                    transform.position = new Vector3(transform.position.x - speed * Time.deltaTime, transform.position.y, transform.position.z); 
+                }
+                else
+                    movingLeft = false;
             }
             else
-                movingLeft = false;
+            {
+                if(transform.position.x < rightEdge)
+                {
+                    transform.position = new Vector3(transform.position.x + speed * Time.deltaTime, transform.position.y, transform.position.z); 
+                }
+                else
+                    movingLeft = true;
+            }
         }
         else
         {
-            if(transform.position.x < rightEdge)
+            if(movingDown)
             {
-                transform.position = new Vector3(transform.position.x + speed * Time.deltaTime, transform.position.y, transform.position.z); 
+                if(transform.position.y > bottomEdge)
+                {
+                    transform.position = new Vector3(transform.position.x, transform.position.y - speed * Time.deltaTime, transform.position.z); 
+                }
+                else
+                    movingDown = false;
             }
             else
-                movingLeft = true;
+            {
+                if(transform.position.y < topEdge)
+                {
+                    transform.position = new Vector3(transform.position.x, transform.position.y + speed * Time.deltaTime, transform.position.z); 
+                }
+                else
+                    movingDown = true;
+            }  
         }
     }
 
