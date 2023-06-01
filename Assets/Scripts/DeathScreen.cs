@@ -13,7 +13,6 @@ public class DeathScreen : MonoBehaviour
     void Start()
     {
         Player = GameObject.Find("Player");
-        
     }
 
     void Update()

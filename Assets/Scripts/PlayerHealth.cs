@@ -30,7 +30,6 @@ public class PlayerHealth : MonoBehaviour
     {
         if(currentHealth - amount <= 0)
         {
-            print("Damage applied:" + amount);
             playerUI.amountHealth.text = "0";
             
             GameObject Player = GameObject.Find("Player");

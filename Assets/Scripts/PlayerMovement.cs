@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using System.Threading;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -20,9 +22,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
+        GameObject player = GameObject.Find("Player");
+        if(player.transform.childCount == 0)
+        {
+            print("Es wurde kein Spieler ausgewählt, gehe zurück zur Character Selection");
+        }
         body = GetComponent<Rigidbody2D>();
         body.gravityScale = gravityScale;
-        body.drag = 0;
+        body.drag = 1;
         body.angularDrag = 0;
         boxCollider = GetComponent<BoxCollider2D>();
         animator.updateMode = AnimatorUpdateMode.UnscaledTime;
