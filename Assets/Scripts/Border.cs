@@ -5,6 +5,7 @@ using UnityEngine;
 public class Border : MonoBehaviour
 {
     public PlayerHealth playerHealth;
+    public bool isCollided = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +22,8 @@ public class Border : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            playerHealth.Damage(playerHealth.maxHealth);
+            playerHealth.Damage(100);
+            isCollided = true;
         }    
     }   
 }

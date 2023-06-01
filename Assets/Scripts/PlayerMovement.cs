@@ -35,10 +35,7 @@ public class PlayerMovement : MonoBehaviour
             animator  = PlayerManager.CharacterAnimator;
             //Debug.Log(PlayerManager.CharacterAnimator + "," + this);
         }
-        else
-        {
-            print("No ANimator found");
-        }
+        
         float horizontalInput = Input.GetAxis("Horizontal");
         body.velocity = new Vector2(horizontalInput * (speed * airspeed), body.velocity.y);
         animator.SetFloat("Speed", Mathf.Abs(horizontalInput));

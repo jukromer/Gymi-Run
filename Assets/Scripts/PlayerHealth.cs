@@ -8,13 +8,16 @@ public class PlayerHealth : MonoBehaviour
     public int currentHealth;
     public int maxHealth;
     public PlayerUI playerUI;
-    public Transform playerSpawn;
-    private Vector2 SpawnPos;
+    //public DeathScreen deathScreen;
+    public Transform playerPos;
+    GameObject DeathScreen;
+    
     
     void Start()
     {
-        currentHealth = maxHealth;
-        SpawnPos = playerSpawn.position;        
+        currentHealth = maxHealth; 
+        DeathScreen = GameObject.Find("DeathScreen");
+        DeathScreen.SetActive(false);       
     }
 
     // Update is called once per frame
@@ -27,8 +30,13 @@ public class PlayerHealth : MonoBehaviour
     {
         if(currentHealth - amount <= 0)
         {
-            playerSpawn.position = SpawnPos;
+            print("Damage applied:" + amount);
             playerUI.amountHealth.text = "0";
+            
+            GameObject Player = GameObject.Find("Player");
+
+            DeathScreen.SetActive(true);
+            //deathScreen.RespawnPos = new Vector2(playerPos.position.x, playerPos.position.y + 10);
         }
         else
         {
