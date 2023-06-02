@@ -8,21 +8,15 @@ public class PlayerHealth : MonoBehaviour
     public int currentHealth;
     public int maxHealth;
     public PlayerUI playerUI;
-    //public DeathScreen deathScreen;
     public Transform playerPos;
-    GameObject DeathScreen;
-    public bool DeathScreenOn;
+    [SerializeField] DeathScreenController DeathScreenController;
     
     
     void Start()
     {
-        currentHealth = maxHealth; 
-        DeathScreen = GameObject.Find("DeathScreen");
-        DeathScreenOn = false;
-        DeathScreen.SetActive(false);       
+        currentHealth = maxHealth;        
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -33,11 +27,7 @@ public class PlayerHealth : MonoBehaviour
         if(currentHealth - amount <= 0)
         {
             playerUI.amountHealth.text = "0";
-            
-            GameObject Player = GameObject.Find("Player");
-            DeathScreenOn = true;
-            DeathScreen.SetActive(true);
-            //deathScreen.RespawnPos = new Vector2(playerPos.position.x, playerPos.position.y + 10);
+            DeathScreenController.toggleDeathScreen(true);
         }
         else
         {

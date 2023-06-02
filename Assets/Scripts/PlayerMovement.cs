@@ -18,21 +18,21 @@ public class PlayerMovement : MonoBehaviour
     public float fallGravityScale = 4f;
     public float gravityScale = 3f;
     public  bool IsGrounded = true;
+    [SerializeField] GameObject playerObject;
     
 
     private void Awake()
     {
-        GameObject player = GameObject.Find("Player");
-        if(player.transform.childCount == 0)
-        {
-            print("Es wurde kein Spieler ausgewählt, gehe zurück zur Character Selection (P)");
-        }
         body = GetComponent<Rigidbody2D>();
         body.gravityScale = gravityScale;
         body.drag = 1;
         body.angularDrag = 0;
         boxCollider = GetComponent<BoxCollider2D>();
         animator.updateMode = AnimatorUpdateMode.UnscaledTime;
+        if(playerObject.transform.childCount < 1)
+        {
+            print("Es wurde kein Spieler ausgewählt, gehe über das Main Menu zurück zur Character Selection (P)");
+        }
     }
 
     private void Update()

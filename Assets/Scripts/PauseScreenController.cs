@@ -7,27 +7,25 @@ using System.Threading;
 
 public class PauseScreenController : MonoBehaviour
 {
-    GameObject pauseScreen;
-    GameObject DeathScreen;
+    [SerializeField] GameObject pauseScreen;
+    [SerializeField] DeathScreenController DeathScreenController;
     public Vector2 RespawnPos;
     public Transform playerSpawn;
-    public PlayerHealth playerHealth;
+    public bool PauseScreenOn;
     
     void Start()
     {
         Time.timeScale = 1f;
-        pauseScreen = GameObject.Find("PauseScreen");
-        pauseScreen.SetActive(false);
-        DeathScreen = GameObject.Find("DeathScreen");
+        togglePauseScreen(false);
     }
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.P) && !playerHealth.DeathScreenOn)
+        if(Input.GetKeyDown(KeyCode.P) && !DeathScreenController.DeathScreenOn)
         {
-            Time.timeScale = 0f;
             RespawnPos = playerSpawn.position;
-            pauseScreen.SetActive(true);
+            Time.timeScale = 0f;
+            togglePauseScreen(true);
         }      
     }
 
@@ -39,8 +37,13 @@ public class PauseScreenController : MonoBehaviour
     public void Resume()
     {
         playerSpawn.position = RespawnPos;
-        pauseScreen.SetActive(false);
+        togglePauseScreen(false);
         Time.timeScale = 1f;
     }
 
+    public void togglePauseScreen(bool state)
+    {
+        pauseScreen.SetActive(state);
+        PauseScreenOn = state;
+    }
 }

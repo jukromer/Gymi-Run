@@ -123,6 +123,54 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &24717993
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 24717995}
+  - component: {fileID: 24717994}
+  m_Layer: 0
+  m_Name: DeathScreenController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &24717994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24717993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00587133cbe7a4886bbddb09276060eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RespawnPos: {x: 0, y: 0}
+  playerSpawn: {fileID: 338426811}
+  DeathScreen: {fileID: 979856970}
+  DeathScreenOn: 0
+--- !u!4 &24717995
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24717993}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 492.2378, y: 231.65652, z: 39.302967}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &75860523
 GameObject:
   m_ObjectHideFlags: 0
@@ -941,7 +989,7 @@ MonoBehaviour:
   maxHealth: 3
   playerUI: {fileID: 338426810}
   playerPos: {fileID: 338426811}
-  DeathScreenOn: 0
+  DeathScreenController: {fileID: 24717994}
 --- !u!114 &338426809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -966,6 +1014,7 @@ MonoBehaviour:
   fallGravityScale: 5
   gravityScale: 3
   IsGrounded: 0
+  playerObject: {fileID: 338426806}
 --- !u!114 &338426810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1825,9 +1874,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4104238c017a84a9eb0fbb36a0e14e03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseScreen: {fileID: 686119690}
+  DeathScreenController: {fileID: 24717994}
   RespawnPos: {x: 0, y: 0}
   playerSpawn: {fileID: 338426811}
-  playerHealth: {fileID: 338426808}
+  PauseScreenOn: 0
 --- !u!1 &855956282 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -536983024725991620, guid: fc339e04359137c448b4403133e4d77d, type: 3}
@@ -2128,7 +2179,6 @@ GameObject:
   - component: {fileID: 999074679}
   - component: {fileID: 999074678}
   - component: {fileID: 999074677}
-  - component: {fileID: 999074676}
   m_Layer: 5
   m_Name: BackToMainMenu
   m_TagString: Untagged
@@ -2157,21 +2207,6 @@ RectTransform:
   m_AnchoredPosition: {x: -126, y: -173}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &999074676
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 999074674}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00587133cbe7a4886bbddb09276060eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RespawnPos: {x: 0, y: 0}
-  playerSpawn: {fileID: 338426811}
-  playerHealth: {fileID: 338426808}
 --- !u!114 &999074677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2216,8 +2251,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 999074676}
-        m_TargetAssemblyTypeName: DeathScreen, Assembly-CSharp
+      - m_Target: {fileID: 24717994}
+        m_TargetAssemblyTypeName: DeathScreenController, Assembly-CSharp
         m_MethodName: BackToMainMenu
         m_Mode: 1
         m_Arguments:
@@ -2624,9 +2659,8 @@ GameObject:
   - component: {fileID: 1345374380}
   - component: {fileID: 1345374379}
   - component: {fileID: 1345374378}
-  - component: {fileID: 1345374377}
   m_Layer: 5
-  m_Name: Resume
+  m_Name: Respawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2653,21 +2687,6 @@ RectTransform:
   m_AnchoredPosition: {x: 126, y: -173}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1345374377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1345374375}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00587133cbe7a4886bbddb09276060eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RespawnPos: {x: 0, y: 0}
-  playerSpawn: {fileID: 338426811}
-  playerHealth: {fileID: 338426808}
 --- !u!114 &1345374378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2712,9 +2731,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1345374377}
-        m_TargetAssemblyTypeName: DeathScreen, Assembly-CSharp
-        m_MethodName: Resume
+      - m_Target: {fileID: 24717994}
+        m_TargetAssemblyTypeName: DeathScreenController, Assembly-CSharp
+        m_MethodName: Respawn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3280,7 +3299,6 @@ GameObject:
   - component: {fileID: 1560557089}
   - component: {fileID: 1560557088}
   - component: {fileID: 1560557087}
-  - component: {fileID: 1560557086}
   m_Layer: 5
   m_Name: BackToMainMenu
   m_TagString: Untagged
@@ -3309,21 +3327,6 @@ RectTransform:
   m_AnchoredPosition: {x: -126, y: -173}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1560557086
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1560557084}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00587133cbe7a4886bbddb09276060eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RespawnPos: {x: 0, y: 0}
-  playerSpawn: {fileID: 338426811}
-  playerHealth: {fileID: 0}
 --- !u!114 &1560557087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3916,7 +3919,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Resume
+  m_text: Respawn
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4005,7 +4008,6 @@ GameObject:
   - component: {fileID: 1940633123}
   - component: {fileID: 1940633122}
   - component: {fileID: 1940633121}
-  - component: {fileID: 1940633120}
   m_Layer: 5
   m_Name: Resume
   m_TagString: Untagged
@@ -4034,21 +4036,6 @@ RectTransform:
   m_AnchoredPosition: {x: 126, y: -173}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1940633120
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1940633118}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00587133cbe7a4886bbddb09276060eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RespawnPos: {x: 0, y: 0}
-  playerSpawn: {fileID: 338426811}
-  playerHealth: {fileID: 338426808}
 --- !u!114 &1940633121
 MonoBehaviour:
   m_ObjectHideFlags: 0
