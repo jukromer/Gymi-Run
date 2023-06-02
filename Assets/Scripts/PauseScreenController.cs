@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Threading;
 
 public class PauseScreenController : MonoBehaviour
 {
@@ -10,9 +11,11 @@ public class PauseScreenController : MonoBehaviour
     GameObject DeathScreen;
     public Vector2 RespawnPos;
     public Transform playerSpawn;
+    public PlayerHealth playerHealth;
     
     void Start()
     {
+        Time.timeScale = 1f;
         pauseScreen = GameObject.Find("PauseScreen");
         pauseScreen.SetActive(false);
         DeathScreen = GameObject.Find("DeathScreen");
@@ -20,8 +23,9 @@ public class PauseScreenController : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.P) && !DeathScreen.activeSelf)
+        if(Input.GetKeyDown(KeyCode.P) && !playerHealth.DeathScreenOn)
         {
+            Time.timeScale = 0f;
             RespawnPos = playerSpawn.position;
             pauseScreen.SetActive(true);
         }      
@@ -35,7 +39,8 @@ public class PauseScreenController : MonoBehaviour
     public void Resume()
     {
         playerSpawn.position = RespawnPos;
-        pauseScreen.SetActive(false);  
+        pauseScreen.SetActive(false);
+        Time.timeScale = 1f;
     }
 
 }

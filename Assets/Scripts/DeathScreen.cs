@@ -9,6 +9,7 @@ public class DeathScreen : MonoBehaviour
     public Vector2 RespawnPos;
     public Transform playerSpawn;
     GameObject Player;
+    public PlayerHealth playerHealth;
 
     void Start()
     {
@@ -27,8 +28,10 @@ public class DeathScreen : MonoBehaviour
 
     public void Resume()
     {
+        print("Resume");
         playerSpawn.position = RespawnPos;
         GameObject DeathScreen = GameObject.Find("DeathScreen");
+        playerHealth.DeathScreenOn = false;
         DeathScreen.SetActive(false);  
     }
 }

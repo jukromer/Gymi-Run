@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
         GameObject player = GameObject.Find("Player");
         if(player.transform.childCount == 0)
         {
-            print("Es wurde kein Spieler ausgewählt, gehe zurück zur Character Selection");
+            print("Es wurde kein Spieler ausgewählt, gehe zurück zur Character Selection (P)");
         }
         body = GetComponent<Rigidbody2D>();
         body.gravityScale = gravityScale;

@@ -11,12 +11,14 @@ public class PlayerHealth : MonoBehaviour
     //public DeathScreen deathScreen;
     public Transform playerPos;
     GameObject DeathScreen;
+    public bool DeathScreenOn;
     
     
     void Start()
     {
         currentHealth = maxHealth; 
         DeathScreen = GameObject.Find("DeathScreen");
+        DeathScreenOn = false;
         DeathScreen.SetActive(false);       
     }
 
@@ -33,7 +35,7 @@ public class PlayerHealth : MonoBehaviour
             playerUI.amountHealth.text = "0";
             
             GameObject Player = GameObject.Find("Player");
-
+            DeathScreenOn = true;
             DeathScreen.SetActive(true);
             //deathScreen.RespawnPos = new Vector2(playerPos.position.x, playerPos.position.y + 10);
         }
