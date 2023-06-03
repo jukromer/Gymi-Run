@@ -8,6 +8,7 @@ TagManager:
   - Pascal
   - Werber
   - PlayerSprite
+  - BossTrigger
   layers:
   - Default
   - TransparentFX
