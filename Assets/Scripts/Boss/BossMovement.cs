@@ -32,6 +32,10 @@ public class BossMovement : MonoBehaviour
         {
             BossSequence();
         }
+        else
+        {
+            boss.position = bossRestingPos;
+        }
     }
 
     void BossSequence()
@@ -42,20 +46,19 @@ public class BossMovement : MonoBehaviour
 
     float movementDirection()
     {
-        
         float randomValue = Random.Range(0.0f, 2.0f);
+        Wait(1);
         if (randomValue < 1)
         {
             movingUp = false;
-            Wait(1);
             return -1f;
         }
         else
         {
             movingUp = true;
-            Wait(1);
             return 1f;
         }
+
     }
 
     public void setBossSpawnState(bool state)

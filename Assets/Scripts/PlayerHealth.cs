@@ -10,10 +10,12 @@ public class PlayerHealth : MonoBehaviour
     public PlayerUI playerUI;
     public Transform playerPos;
     [SerializeField] DeathScreenController DeathScreenController;
+    [SerializeField] BossMovement bossMovement;
     
     
     void Start()
     {
+        Time.timeScale = 1f;
         currentHealth = maxHealth;        
     }
 
@@ -26,6 +28,8 @@ public class PlayerHealth : MonoBehaviour
     {
         if(currentHealth - amount <= 0)
         {
+            Time.timeScale = 0f;
+            bossMovement.setBossSpawnState(false);
             playerUI.amountHealth.text = "0";
             DeathScreenController.toggleDeathScreen(true);
         }

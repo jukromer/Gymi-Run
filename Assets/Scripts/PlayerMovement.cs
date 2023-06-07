@@ -20,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
     public  bool IsGrounded = true;
     [SerializeField] GameObject playerObject;
     [SerializeField] BossMovement bossMovement;
+    [SerializeField] float KillHeight;
+    [SerializeField] PlayerHealth playerHealth;
     
 
     private void Awake()
@@ -30,8 +32,10 @@ public class PlayerMovement : MonoBehaviour
         body.angularDrag = 0;
         boxCollider = GetComponent<BoxCollider2D>();
         animator.updateMode = AnimatorUpdateMode.UnscaledTime;
+        //Wait(1);
         if(playerObject.transform.childCount < 1)
         {
+            //SceneManager.LoadScene("CharacterSelection");
             print("Es wurde kein Spieler ausgewählt, gehe über das Main Menu zurück zur Character Selection (P)");
         }
     }
@@ -77,7 +81,12 @@ public class PlayerMovement : MonoBehaviour
             {
                 Stomp();
             }
-        }   
+        } 
+
+        if(player.position.y < KillHeight)
+        {
+            playerHealth.Damage(100);
+        }  
     }
 
     private void FixedUpdate() 
@@ -142,6 +151,16 @@ public class PlayerMovement : MonoBehaviour
     {
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.1f, groundLayer);
         return raycastHit.collider != null;
+    }
+
+    private IEnumerator WaitForTime(int time)
+    {
+        yield return new WaitForSeconds(time);
+    }
+
+    private void Wait(int seconds)
+    {
+        StartCoroutine(WaitForTime(seconds));
     }
    
 }

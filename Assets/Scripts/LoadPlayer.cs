@@ -3,15 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class LoadPlayer : MonoBehaviour
 {
-    public string targetName; // Das Tag des GameObjects, das Sie suchen möchten
-    public Transform parentObject; // Das GameObject, dem das gesuchte GameObject als Child hinzugefügt werden soll
+    public string targetName; 
+    public Transform parentObject;
+    [SerializeField] bool DevMode = false;
+    public TMP_Text DevModeMessage;
 
     void Start()
     {
-        targetName = PlayerManager.CharacterName;
+        DevModeMessage.text = "";
+        if(DevMode)
+        {
+            targetName = "PascalCut";
+            DevModeMessage.text = "DevMode is activated! <Pascal> will always automatically be chosen as the played character. Deactivate DevMode in Player --> LoadPlayer --> DevMode.";
+        }
+        else
+        {
+            targetName = PlayerManager.CharacterName;   
+        }
         GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag("PlayerSprite");
         for(int i = 0; i < objectsWithTag.Length; i++)
         {

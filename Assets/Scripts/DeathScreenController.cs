@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Threading;
 
 public class DeathScreenController : MonoBehaviour
 {
@@ -11,9 +12,11 @@ public class DeathScreenController : MonoBehaviour
     [SerializeField] GameObject DeathScreen;
     public bool DeathScreenOn;
     [SerializeField] BossMovement bossMovement;
+    [SerializeField] PlayerMovement playerMovement;
 
     void Start()
     {
+        //playerMovement.body.constraints = RigidbodyConstraints2D.None;
         toggleDeathScreen(false);
     }
 
@@ -29,6 +32,8 @@ public class DeathScreenController : MonoBehaviour
 
     public void Respawn()
     {
+        Time.timeScale = 1f;
+        //playerMovement.body.constraints = RigidbodyConstraints2D.None;
         print("Respawn");
         bossMovement.resetBossPos();
         playerSpawn.position = RespawnPos;
@@ -37,7 +42,9 @@ public class DeathScreenController : MonoBehaviour
 
     public void toggleDeathScreen(bool state)
     {
+        //playerMovement.body.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
         DeathScreen.SetActive(state);
         DeathScreenOn = state;
+
     }
 }
