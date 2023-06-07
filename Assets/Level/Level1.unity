@@ -156,6 +156,7 @@ MonoBehaviour:
   playerSpawn: {fileID: 338426811}
   DeathScreen: {fileID: 979856970}
   DeathScreenOn: 0
+  bossMovement: {fileID: 808185561}
 --- !u!4 &24717995
 Transform:
   m_ObjectHideFlags: 0
@@ -1015,6 +1016,7 @@ MonoBehaviour:
   gravityScale: 3
   IsGrounded: 0
   playerObject: {fileID: 338426806}
+  bossMovement: {fileID: 808185561}
 --- !u!114 &338426810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1195,64 +1197,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &399827381
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 399827383}
-  - component: {fileID: 399827382}
-  m_Layer: 0
-  m_Name: BossTrigger
-  m_TagString: BossTrigger
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!61 &399827382
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 399827381}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.4351759}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 9.219992}
-  m_EdgeRadius: 0
---- !u!4 &399827383
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 399827381}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24.83, y: 0, z: 44.124523}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &477704292
 GameObject:
   m_ObjectHideFlags: 0
@@ -1811,7 +1755,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &808185560
 Transform:
   m_ObjectHideFlags: 0
@@ -1820,7 +1764,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 808185559}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.4089987, y: -0.6253124, z: 16.853842}
+  m_LocalPosition: {x: 2.4089987, y: 11.73, z: 16.853842}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1843,7 +1787,9 @@ MonoBehaviour:
   player: {fileID: 338426811}
   animator: {fileID: 1440459992}
   boss: {fileID: 808185560}
-  speed: 0
+  isSpawned: 0
+  speed: 2
+  movementDistance: 4
 --- !u!50 &808185562
 Rigidbody2D:
   serializedVersion: 4
@@ -3114,7 +3060,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4257508509235537429, guid: 155395b58d23a47bb893bdd27a030bcb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.0041828523
       objectReference: {fileID: 0}
     - target: {fileID: 4257508509235537429, guid: 155395b58d23a47bb893bdd27a030bcb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3824,7 +3770,7 @@ GameObject:
   - component: {fileID: 1801357239}
   m_Layer: 6
   m_Name: Table (7)
-  m_TagString: Ground
+  m_TagString: BossTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4560,7 +4506,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6736957807164001479, guid: fc339e04359137c448b4403133e4d77d, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.027372945
+      value: 0.02737295
       objectReference: {fileID: 0}
     - target: {fileID: 6736957807164001479, guid: fc339e04359137c448b4403133e4d77d, type: 3}
       propertyPath: m_LocalRotation.x

@@ -9,53 +9,73 @@ public class BossMovement : MonoBehaviour
     Vector2 playerPos;
     [SerializeField] Animator animator;
     public Transform boss;
+    private Rigidbody2D bossBody;
     bool movingUp;
     float topEdge;
     float bottomEdge;
-    bool isSpawned;
+    [SerializeField] bool isSpawned;
     [SerializeField] float speed;
+    [SerializeField] float movementDistance;
+    private Vector2 bossRestingPos;
 
     void Start()
     {
-
+        bossRestingPos = boss.position;
+        topEdge = player.position.y + movementDistance;
+        bottomEdge = player.position.y - movementDistance;
+        bossBody = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
-
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision) 
-    {
-        if(collision.gameObject.CompareTag("BossTrigger"))
+        if(isSpawned)
         {
-            isSpawned = true;
             BossSequence();
         }
     }
 
     void BossSequence()
     {
-        while (isSpawned)
-        {
-            boss.position = new Vector2(player.position.x + 10, player.position.y + (speed * movementDirection()) * Time.deltaTime);
-            Thread.Sleep(1000);  
-        }
+        boss.position = new Vector2(player.position.x + 10, player.position.y + (speed * movementDirection()) * Time.deltaTime);
+        //bossBody.velocity = new Vector2(boss.position.x, player.position.y + (speed * movementDirection()) * Time.deltaTime);
     }
 
     float movementDirection()
     {
-        float randomValue;
-        randomValue = Random.Range(0.0f, 2.0f);
+        
+        float randomValue = Random.Range(0.0f, 2.0f);
         if (randomValue < 1)
         {
             movingUp = false;
+            Wait(1);
             return -1f;
         }
         else
         {
             movingUp = true;
+            Wait(1);
             return 1f;
         }
+    }
+
+    public void setBossSpawnState(bool state)
+    {
+        isSpawned = state;
+    }
+
+    private IEnumerator WaitForTime(int time)
+    {
+        yield return new WaitForSeconds(time);
+    }
+
+    private void Wait(int seconds)
+    {
+        StartCoroutine(WaitForTime(seconds));
+    }
+
+    public void resetBossPos()
+    {
+        boss.position = bossRestingPos;
+        isSpawned = false;
     }
 }

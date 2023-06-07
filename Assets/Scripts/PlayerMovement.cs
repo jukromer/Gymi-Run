@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     public float gravityScale = 3f;
     public  bool IsGrounded = true;
     [SerializeField] GameObject playerObject;
+    [SerializeField] BossMovement bossMovement;
     
 
     private void Awake()
@@ -68,6 +69,14 @@ public class PlayerMovement : MonoBehaviour
             {   
                 DoubleJump();
             }
+        }
+
+        if(Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            if(IsGrounded == false)
+            {
+                Stomp();
+            }
         }   
     }
 
@@ -99,14 +108,32 @@ public class PlayerMovement : MonoBehaviour
         jumpCount = 0;
     }
 
+    private void Stomp()
+    {
+        animator.SetBool("IsStomping", true);
+        fallGravityScale = 40f;
+        animator.SetBool("IsJumping", false);
+        animator.SetBool("IsDoubleJumping", false);
+        if(body.velocity.y > 0)
+        {
+            body.velocity = new Vector2(body.velocity.x , body.velocity.y * -1f);
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("Ground"))
+        if(collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("BossTrigger"))
         {
+            fallGravityScale = 4f;
             IsGrounded = true;
             jumpCount = 0;
             animator.SetBool("IsJumping", false);
             animator.SetBool("IsDoubleJumping", false);
+            animator.SetBool("IsStomping", false);
+        }
+        if (collision.gameObject.CompareTag("BossTrigger"))
+        {
+            bossMovement.setBossSpawnState(true);    
         }
     }
 
