@@ -15,14 +15,14 @@ public class BossMovement : MonoBehaviour
     float bottomEdge;
     [SerializeField] bool isSpawned;
     [SerializeField] float speed;
-    [SerializeField] float movementDistance;
+    //[SerializeField] float movementDistance;
     private Vector2 bossRestingPos;
 
     void Start()
     {
+        topEdge = player.position.y + movementDistance();
+        bottomEdge = player.position.y - movementDistance();
         bossRestingPos = boss.position;
-        topEdge = player.position.y + movementDistance;
-        bottomEdge = player.position.y - movementDistance;
         bossBody = GetComponent<Rigidbody2D>();
     }
 
@@ -40,25 +40,36 @@ public class BossMovement : MonoBehaviour
 
     void BossSequence()
     {
-        boss.position = new Vector2(player.position.x + 10, player.position.y + (speed * movementDirection()) * Time.deltaTime);
-        //bossBody.velocity = new Vector2(boss.position.x, player.position.y + (speed * movementDirection()) * Time.deltaTime);
-    }
-
-    float movementDirection()
-    {
-        float randomValue = Random.Range(0.0f, 2.0f);
-        Wait(1);
-        if (randomValue < 1)
+        if(movingUp)
         {
-            movingUp = false;
-            return -1f;
+            if (boss.position.y < topEdge)
+            {
+                boss.position = new Vector2(player.position.x + 10, boss.position.y + speed * Time.deltaTime);
+            }
+            else
+            {
+                topEdge = player.position.y + movementDistance();
+                movingUp = false;
+            }
         }
         else
         {
-            movingUp = true;
-            return 1f;
+            if (boss.position.y > bottomEdge)
+            {
+                boss.position = new Vector2(player.position.x + 10, boss.position.y - speed * Time.deltaTime);   
+            }
+            else
+            {
+                bottomEdge = player.position.y - movementDistance();
+                movingUp = true;
+            }
         }
+    }
 
+    float movementDistance()
+    {
+        float randomValue = Random.Range(1.0f, 3.0f);
+        return randomValue;
     }
 
     public void setBossSpawnState(bool state)

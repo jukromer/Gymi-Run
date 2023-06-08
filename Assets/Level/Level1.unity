@@ -893,7 +893,7 @@ MonoBehaviour:
   IsGrounded: 0
   playerObject: {fileID: 338426806}
   bossMovement: {fileID: 808185561}
-  KillHeight: -7
+  KillHeight: -10
   playerHealth: {fileID: 338426808}
 --- !u!114 &338426810
 MonoBehaviour:
@@ -1668,7 +1668,6 @@ MonoBehaviour:
   boss: {fileID: 808185560}
   isSpawned: 0
   speed: 2
-  movementDistance: 4
 --- !u!50 &808185562
 Rigidbody2D:
   serializedVersion: 4
@@ -3785,7 +3784,7 @@ GameObject:
   - component: {fileID: 1801357240}
   - component: {fileID: 1801357239}
   m_Layer: 6
-  m_Name: Table (7)
+  m_Name: Temp. BossTrigger
   m_TagString: BossTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
