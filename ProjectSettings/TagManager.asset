@@ -9,6 +9,7 @@ TagManager:
   - Werber
   - PlayerSprite
   - BossTrigger
+  - Boss
   layers:
   - Default
   - TransparentFX
