@@ -10,6 +10,7 @@ TagManager:
   - PlayerSprite
   - BossTrigger
   - Boss
+  - Prot_Bubble_Trigger
   layers:
   - Default
   - TransparentFX
@@ -46,4 +47,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: InffrontofPlayer
+    uniqueID: 1983768005
     locked: 0

@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
     public float fallGravityScale = 4f;
     public float gravityScale = 3f;
-    public  bool IsGrounded = true;
+    [SerializeField] private bool isGrounded;
     [SerializeField] GameObject playerObject;
     [SerializeField] BossMovement bossMovement;
     [SerializeField] float KillHeight;
@@ -43,6 +43,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+
+
         if(PlayerManager.CharacterAnimator != null)
         {
             animator  = PlayerManager.CharacterAnimator;
@@ -65,8 +67,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {   
-            if(IsGrounded && jumpCount == 0)
-            {   IsGrounded = false;           
+            if(isGrounded && jumpCount == 0)
+            {   isGrounded = false;           
                 jumpCount++;
                 Jump();  
             }
@@ -78,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.LeftShift))
         {
-            if(IsGrounded == false)
+            if(isGrounded == false)
             {
                 Stomp();
             }
@@ -87,7 +89,7 @@ public class PlayerMovement : MonoBehaviour
         if(player.position.y < KillHeight)
         {
             playerHealth.Damage(100);
-        }  
+        }
     }
 
     private void FixedUpdate() 
@@ -129,39 +131,24 @@ public class PlayerMovement : MonoBehaviour
             body.velocity = new Vector2(body.velocity.x , body.velocity.y * -1f);
         }
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    
+    private void OnCollisionEnter2D(Collision2D collision) 
     {
-        if(collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("BossTrigger"))
-        {
-            fallGravityScale = 4f;
-            IsGrounded = true;
-            jumpCount = 0;
-            animator.SetBool("IsJumping", false);
-            animator.SetBool("IsDoubleJumping", false);
-            animator.SetBool("IsStomping", false);
-        }
+        fallGravityScale = 4f;
+        isGrounded = true;
+        jumpCount = 0;
+        animator.SetBool("IsJumping", false);
+        animator.SetBool("IsDoubleJumping", false);
+        animator.SetBool("IsStomping", false);
         if (collision.gameObject.CompareTag("BossTrigger"))
         {
             bossMovement.setBossSpawnState(true);    
         }
     }
 
-
-    private bool isGrounded() 
+    private void OnCollisionExit2D(Collision2D collision) 
     {
-        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.1f, groundLayer);
-        return raycastHit.collider != null;
-    }
-
-    private IEnumerator WaitForTime(int time)
-    {
-        yield return new WaitForSeconds(time);
-    }
-
-    private void Wait(int seconds)
-    {
-        StartCoroutine(WaitForTime(seconds));
+        isGrounded = false;
     }
    
 }
