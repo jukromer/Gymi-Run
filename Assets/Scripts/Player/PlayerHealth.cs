@@ -30,7 +30,7 @@ public class PlayerHealth : MonoBehaviour
         {
             Time.timeScale = 0f;
             bossMovement.setBossSpawnState(false);
-            playerUI.amountHealth.text = "0";
+            //playerUI.amountHealth.text = "0";
             DeathScreenController.toggleDeathScreen(true);
         }
         else

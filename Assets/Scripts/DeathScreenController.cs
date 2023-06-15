@@ -13,6 +13,7 @@ public class DeathScreenController : MonoBehaviour
     public bool DeathScreenOn;
     [SerializeField] BossMovement bossMovement;
     [SerializeField] PlayerMovement playerMovement;
+    [SerializeField] PlayerController playerController;
 
     void Start()
     {
@@ -38,6 +39,7 @@ public class DeathScreenController : MonoBehaviour
         bossMovement.resetBossPos();
         playerSpawn.position = RespawnPos;
         toggleDeathScreen(false);  
+        playerController.resetCoins();
     }
 
     public void toggleDeathScreen(bool state)

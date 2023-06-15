@@ -33,12 +33,6 @@ public class PlayerMovement : MonoBehaviour
         body.angularDrag = 0;
         boxCollider = GetComponent<BoxCollider2D>();
         animator.updateMode = AnimatorUpdateMode.UnscaledTime;
-        //Wait(1);
-        if(playerObject.transform.childCount < 1)
-        {
-            //SceneManager.LoadScene("CharacterSelection");
-            print("Es wurde kein Spieler ausgewählt, gehe über das Main Menu zurück zur Character Selection (P)");
-        }
     }
 
     private void Update()
@@ -48,7 +42,6 @@ public class PlayerMovement : MonoBehaviour
         if(PlayerManager.CharacterAnimator != null)
         {
             animator  = PlayerManager.CharacterAnimator;
-            //Debug.Log(PlayerManager.CharacterAnimator + "," + this);
         }
         
         float horizontalInput = Input.GetAxis("Horizontal");

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerUI : MonoBehaviour
 {  
-    public Text amountHealth;
+    //public Text amountHealth;
     public PlayerHealth playerHealth;
     
     
@@ -21,7 +21,7 @@ public class PlayerUI : MonoBehaviour
 
     public void setHealth()
     {
-        amountHealth.text = playerHealth.currentHealth.ToString();
+        //amountHealth.text = playerHealth.currentHealth.ToString();
     }
 
 }

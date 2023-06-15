@@ -11,6 +11,7 @@ public class LoadPlayer : MonoBehaviour
     public Transform parentObject;
     [SerializeField] bool DevMode = false;
     public TMP_Text DevModeMessage;
+    
 
     void Start()
     {
