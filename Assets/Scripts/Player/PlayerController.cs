@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
         {
             prot_bubble_object.SetActive(true);
             prot_bubble_object.transform.SetParent(playerTransform);
-            resetCoins();
+            CoinCount = 0;
         }
     }
     
