@@ -200,12 +200,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 39663238}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.68, y: 0.67, z: 2.1351235}
+  m_LocalPosition: {x: 10.68, y: 0.6700001, z: 2.1351235}
   m_LocalScale: {x: 0.6691, y: 0.6691, z: 0.6691}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 678640884}
-  m_RootOrder: 15
+  m_Father: {fileID: 220472692}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!70 &39663240
 CapsuleCollider2D:
@@ -485,8 +485,8 @@ Transform:
   m_LocalScale: {x: 0.6691, y: 0.6691, z: 0.6691}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 678640884}
-  m_RootOrder: 9
+  m_Father: {fileID: 220472692}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!70 &141954273
 CapsuleCollider2D:
@@ -568,7 +568,7 @@ GameObject:
   - component: {fileID: 143013700}
   - component: {fileID: 143013699}
   m_Layer: 6
-  m_Name: Temp.BossTrigger (11)
+  m_Name: Table (22)
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -660,12 +660,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 143013698}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 106.92, y: 10.29, z: 0}
+  m_LocalPosition: {x: 107.48299, y: 12.504864, z: 2.1351235}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_Father: {fileID: 509068681}
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &165452358
 GameObject:
@@ -697,8 +697,8 @@ Transform:
   m_LocalScale: {x: 0.6691, y: 0.6691, z: 0.6691}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 678640884}
-  m_RootOrder: 10
+  m_Father: {fileID: 220472692}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!70 &165452360
 CapsuleCollider2D:
@@ -948,6 +948,48 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &220472691
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 220472692}
+  m_Layer: 0
+  m_Name: Coins
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &220472692
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 220472691}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 141954272}
+  - {fileID: 165452359}
+  - {fileID: 1956009293}
+  - {fileID: 521451823}
+  - {fileID: 2144324767}
+  - {fileID: 1493468783}
+  - {fileID: 39663239}
+  - {fileID: 1555530121}
+  - {fileID: 1418611837}
+  - {fileID: 305572778}
+  - {fileID: 725761822}
+  m_Father: {fileID: 678640884}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &229512496
 GameObject:
   m_ObjectHideFlags: 0
@@ -960,7 +1002,7 @@ GameObject:
   - component: {fileID: 229512498}
   - component: {fileID: 229512497}
   m_Layer: 6
-  m_Name: Temp.BossTrigger (1)
+  m_Name: Table (12)
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1052,12 +1094,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 229512496}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 47.59, y: 2.35, z: 0}
+  m_LocalPosition: {x: 48.152985, y: 4.564864, z: 2.1351235}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_Father: {fileID: 509068681}
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &251500026
 GameObject:
@@ -1085,12 +1127,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 251500026}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.66, y: -0.57, z: 2.1351235}
+  m_LocalPosition: {x: 10.66, y: -0.56999993, z: 2.1351235}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 678640884}
-  m_RootOrder: 3
+  m_Father: {fileID: 509068681}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &251500028
 BoxCollider2D:
@@ -1182,7 +1224,7 @@ GameObject:
   - component: {fileID: 255204119}
   - component: {fileID: 255204118}
   m_Layer: 6
-  m_Name: Temp.BossTrigger (13)
+  m_Name: Table (24)
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1274,12 +1316,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 255204117}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 107.46, y: -3.5, z: 0}
+  m_LocalPosition: {x: 108.02299, y: -1.285136, z: 2.1351235}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_Father: {fileID: 509068681}
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &265134186
 GameObject:
@@ -1293,7 +1335,7 @@ GameObject:
   - component: {fileID: 265134188}
   - component: {fileID: 265134187}
   m_Layer: 6
-  m_Name: Temp.BossTrigger
+  m_Name: Table (11)
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1385,12 +1427,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 265134186}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 43.45, y: -0.6, z: 0}
+  m_LocalPosition: {x: 44.012985, y: 1.614864, z: 2.1351235}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_Father: {fileID: 509068681}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &285330240
 GameObject:
@@ -1422,8 +1464,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 678640884}
-  m_RootOrder: 4
+  m_Father: {fileID: 509068681}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &285330242
 BoxCollider2D:
@@ -1515,7 +1557,7 @@ GameObject:
   - component: {fileID: 305572777}
   - component: {fileID: 305572776}
   m_Layer: 0
-  m_Name: Coin
+  m_Name: Coin (10)
   m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1601,8 +1643,8 @@ Transform:
   m_LocalScale: {x: 0.6691, y: 0.6691, z: 0.6691}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 678640884}
-  m_RootOrder: 8
+  m_Father: {fileID: 220472692}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &306634173
 GameObject:
@@ -1616,7 +1658,7 @@ GameObject:
   - component: {fileID: 306634175}
   - component: {fileID: 306634174}
   m_Layer: 6
-  m_Name: Temp.BossTrigger (3)
+  m_Name: Table (14)
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1708,12 +1750,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 306634173}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 56.14, y: 2.18, z: 0}
+  m_LocalPosition: {x: 56.702984, y: 4.394864, z: 2.1351235}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_Father: {fileID: 509068681}
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &319926356
 GameObject:
@@ -1742,12 +1784,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 319926356}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.48, y: 0.7, z: 2.1351235}
+  m_LocalPosition: {x: 4.48, y: 0.70000005, z: 2.1351235}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 678640884}
-  m_RootOrder: 1
+  m_Father: {fileID: 509068681}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &319926358
 BoxCollider2D:
@@ -1932,6 +1974,7 @@ MonoBehaviour:
   bossMovement: {fileID: 808185561}
   KillHeight: -10
   playerHealth: {fileID: 338426808}
+  screenshake: {fileID: 0}
 --- !u!114 &338426810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2050,8 +2093,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 678640884}
-  m_RootOrder: 5
+  m_Father: {fileID: 509068681}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &361695410
 BoxCollider2D:
@@ -2143,7 +2186,7 @@ GameObject:
   - component: {fileID: 450812663}
   - component: {fileID: 450812662}
   m_Layer: 6
-  m_Name: Temp.BossTrigger (17)
+  m_Name: Table (28)
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2235,12 +2278,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 450812661}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 140.01, y: -4.24, z: 0}
+  m_LocalPosition: {x: 140.57298, y: -2.0251358, z: 2.1351235}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 31
+  m_Father: {fileID: 509068681}
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &477704292
 GameObject:
@@ -2322,6 +2365,66 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 477704292}
   m_CullTransparentMesh: 1
+--- !u!1 &509068680
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 509068681}
+  m_Layer: 0
+  m_Name: Tables
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &509068681
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509068680}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 319926357}
+  - {fileID: 1076911258}
+  - {fileID: 251500027}
+  - {fileID: 285330241}
+  - {fileID: 361695409}
+  - {fileID: 1502280264}
+  - {fileID: 1801357238}
+  - {fileID: 1300294396}
+  - {fileID: 510712136}
+  - {fileID: 659262994}
+  - {fileID: 265134189}
+  - {fileID: 229512499}
+  - {fileID: 1174837723}
+  - {fileID: 306634176}
+  - {fileID: 1649153453}
+  - {fileID: 664641490}
+  - {fileID: 1766304386}
+  - {fileID: 1032433267}
+  - {fileID: 1657076239}
+  - {fileID: 1327230380}
+  - {fileID: 1883942409}
+  - {fileID: 143013701}
+  - {fileID: 1471659744}
+  - {fileID: 255204120}
+  - {fileID: 1666411771}
+  - {fileID: 1762057495}
+  - {fileID: 1668769238}
+  - {fileID: 450812664}
+  - {fileID: 1439802289}
+  m_Father: {fileID: 678640884}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &510712135
 GameObject:
   m_ObjectHideFlags: 0
@@ -2352,8 +2455,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 678640884}
-  m_RootOrder: 20
+  m_Father: {fileID: 509068681}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &510712137
 BoxCollider2D:
@@ -2463,8 +2566,8 @@ Transform:
   m_LocalScale: {x: 0.6691, y: 0.6691, z: 0.6691}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 678640884}
-  m_RootOrder: 12
+  m_Father: {fileID: 220472692}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!70 &521451824
 CapsuleCollider2D:
@@ -2934,7 +3037,7 @@ GameObject:
   - component: {fileID: 659262996}
   - component: {fileID: 659262995}
   m_Layer: 6
-  m_Name: Temp.BossTrigger
+  m_Name: Table (10)
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2952,8 +3055,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 678640884}
-  m_RootOrder: 18
+  m_Father: {fileID: 509068681}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &659262995
 BoxCollider2D:
@@ -3045,7 +3148,7 @@ GameObject:
   - component: {fileID: 664641489}
   - component: {fileID: 664641488}
   m_Layer: 6
-  m_Name: Temp.BossTrigger (5)
+  m_Name: Table (16)
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3137,12 +3240,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 664641487}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 69.39, y: -0.45, z: 0}
+  m_LocalPosition: {x: 69.95299, y: 1.764864, z: 2.1351235}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_Father: {fileID: 509068681}
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &678640883
 GameObject:
@@ -3172,27 +3275,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1439802289}
-  - {fileID: 319926357}
-  - {fileID: 1076911258}
-  - {fileID: 251500027}
-  - {fileID: 285330241}
-  - {fileID: 361695409}
-  - {fileID: 1502280264}
-  - {fileID: 1801357238}
-  - {fileID: 305572778}
-  - {fileID: 141954272}
-  - {fileID: 165452359}
-  - {fileID: 1956009293}
-  - {fileID: 521451823}
-  - {fileID: 2144324767}
-  - {fileID: 1493468783}
-  - {fileID: 39663239}
-  - {fileID: 1555530121}
-  - {fileID: 1418611837}
-  - {fileID: 659262994}
-  - {fileID: 1300294396}
-  - {fileID: 510712136}
+  - {fileID: 509068681}
+  - {fileID: 220472692}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3240,7 +3324,7 @@ GameObject:
   - component: {fileID: 725761821}
   - component: {fileID: 725761820}
   m_Layer: 0
-  m_Name: Coin (1)
+  m_Name: Coin (11)
   m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3322,12 +3406,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 725761819}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 43.54, y: 0.81, z: 0}
+  m_LocalPosition: {x: 44.102985, y: 3.024864, z: 2.1351235}
   m_LocalScale: {x: 0.6691, y: 0.6691, z: 0.6691}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_Father: {fileID: 220472692}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &808185559
 GameObject:
@@ -3978,7 +4062,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1005007582}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4001,6 +4085,7 @@ MonoBehaviour:
   player: {fileID: 338426811}
   aheadDistance: 5
   cameraSpeed: 0.5
+  isFollowing: 0
 --- !u!1 &1032433264
 GameObject:
   m_ObjectHideFlags: 0
@@ -4013,7 +4098,7 @@ GameObject:
   - component: {fileID: 1032433266}
   - component: {fileID: 1032433265}
   m_Layer: 6
-  m_Name: Temp.BossTrigger (7)
+  m_Name: Table (18)
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4105,12 +4190,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1032433264}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 81.59, y: -2.85, z: 0}
+  m_LocalPosition: {x: 82.152985, y: -0.6351359, z: 2.1351235}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_Father: {fileID: 509068681}
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1070745792
 GameObject:
@@ -4277,8 +4362,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 678640884}
-  m_RootOrder: 2
+  m_Father: {fileID: 509068681}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1076911259
 BoxCollider2D:
@@ -4506,7 +4591,7 @@ GameObject:
   - component: {fileID: 1174837722}
   - component: {fileID: 1174837721}
   m_Layer: 6
-  m_Name: Temp.BossTrigger (2)
+  m_Name: Table (13)
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4598,12 +4683,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1174837720}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 51.3, y: -0.631, z: 0}
+  m_LocalPosition: {x: 51.862984, y: 1.583864, z: 2.1351235}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_Father: {fileID: 509068681}
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1300294395
 GameObject:
@@ -4635,8 +4720,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 678640884}
-  m_RootOrder: 19
+  m_Father: {fileID: 509068681}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1300294397
 BoxCollider2D:
@@ -4842,7 +4927,7 @@ GameObject:
   - component: {fileID: 1327230379}
   - component: {fileID: 1327230378}
   m_Layer: 6
-  m_Name: Temp.BossTrigger (9)
+  m_Name: Table (20)
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4934,12 +5019,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1327230377}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 94.03, y: 1.77, z: 0}
+  m_LocalPosition: {x: 94.59299, y: 3.984864, z: 2.1351235}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_Father: {fileID: 509068681}
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1345374375
 GameObject:
@@ -5105,8 +5190,8 @@ Transform:
   m_LocalScale: {x: 0.6691, y: 0.6691, z: 0.6691}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 678640884}
-  m_RootOrder: 17
+  m_Father: {fileID: 220472692}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!70 &1418611838
 CapsuleCollider2D:
@@ -5188,7 +5273,7 @@ GameObject:
   - component: {fileID: 1439802288}
   - component: {fileID: 1439802287}
   m_Layer: 6
-  m_Name: Table
+  m_Name: Table (29)
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5280,12 +5365,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1439802286}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.12, y: -0.8, z: 2.1351235}
+  m_LocalPosition: {x: -5.12, y: -0.79999995, z: 2.1351235}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 678640884}
-  m_RootOrder: 0
+  m_Father: {fileID: 509068681}
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1440459989
 PrefabInstance:
@@ -5567,7 +5652,7 @@ GameObject:
   - component: {fileID: 1471659743}
   - component: {fileID: 1471659742}
   m_Layer: 6
-  m_Name: Temp.BossTrigger (12)
+  m_Name: Table (23)
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5659,12 +5744,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1471659741}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 109.48, y: 3.26, z: 0}
+  m_LocalPosition: {x: 110.04299, y: 5.474864, z: 2.1351235}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_Father: {fileID: 509068681}
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1493468782
 GameObject:
@@ -5696,8 +5781,8 @@ Transform:
   m_LocalScale: {x: 0.6691, y: 0.6691, z: 0.6691}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 678640884}
-  m_RootOrder: 14
+  m_Father: {fileID: 220472692}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!70 &1493468784
 CapsuleCollider2D:
@@ -5794,12 +5879,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1502280263}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 20.32, y: 0.4, z: 2.1351235}
+  m_LocalPosition: {x: 20.32, y: 0.39999998, z: 2.1351235}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 678640884}
-  m_RootOrder: 6
+  m_Father: {fileID: 509068681}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1502280265
 MonoBehaviour:
@@ -5924,8 +6009,8 @@ Transform:
   m_LocalScale: {x: 0.6691, y: 0.6691, z: 0.6691}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 678640884}
-  m_RootOrder: 16
+  m_Father: {fileID: 220472692}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!70 &1555530122
 CapsuleCollider2D:
@@ -6431,7 +6516,7 @@ GameObject:
   - component: {fileID: 1649153452}
   - component: {fileID: 1649153451}
   m_Layer: 6
-  m_Name: Temp.BossTrigger (4)
+  m_Name: Table (15)
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6523,12 +6608,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1649153450}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 59.63, y: -0.41, z: 0}
+  m_LocalPosition: {x: 60.192986, y: 1.804864, z: 2.1351235}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_Father: {fileID: 509068681}
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1657076236
 GameObject:
@@ -6542,7 +6627,7 @@ GameObject:
   - component: {fileID: 1657076238}
   - component: {fileID: 1657076237}
   m_Layer: 6
-  m_Name: Temp.BossTrigger (8)
+  m_Name: Table (19)
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6634,12 +6719,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1657076236}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 87.21, y: -0.95, z: 0}
+  m_LocalPosition: {x: 87.77299, y: 1.264864, z: 2.1351235}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_Father: {fileID: 509068681}
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1658136819 stripped
 GameObject:
@@ -6692,7 +6777,7 @@ GameObject:
   - component: {fileID: 1666411770}
   - component: {fileID: 1666411769}
   m_Layer: 6
-  m_Name: Temp.BossTrigger (14)
+  m_Name: Table (25)
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6784,12 +6869,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1666411768}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 116.41, y: -5.04, z: 0}
+  m_LocalPosition: {x: 116.97299, y: -2.825136, z: 2.1351235}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_Father: {fileID: 509068681}
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1668769235
 GameObject:
@@ -6803,7 +6888,7 @@ GameObject:
   - component: {fileID: 1668769237}
   - component: {fileID: 1668769236}
   m_Layer: 6
-  m_Name: Temp.BossTrigger (16)
+  m_Name: Table (27)
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6895,12 +6980,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1668769235}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 131.91, y: -6.21, z: 0}
+  m_LocalPosition: {x: 132.47299, y: -3.995136, z: 2.1351235}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 30
+  m_Father: {fileID: 509068681}
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1739888274
 GameObject:
@@ -6984,7 +7069,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 32
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1762057492
 GameObject:
@@ -6998,7 +7083,7 @@ GameObject:
   - component: {fileID: 1762057494}
   - component: {fileID: 1762057493}
   m_Layer: 6
-  m_Name: Temp.BossTrigger (15)
+  m_Name: Table (26)
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7090,12 +7175,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1762057492}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 125.2, y: -2.91, z: 0}
+  m_LocalPosition: {x: 125.762985, y: -0.6951361, z: 2.1351235}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_Father: {fileID: 509068681}
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1766304383
 GameObject:
@@ -7109,7 +7194,7 @@ GameObject:
   - component: {fileID: 1766304385}
   - component: {fileID: 1766304384}
   m_Layer: 6
-  m_Name: Temp.BossTrigger (6)
+  m_Name: Table (17)
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7201,12 +7286,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1766304383}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 75.96, y: 1.68, z: 0}
+  m_LocalPosition: {x: 76.52299, y: 3.894864, z: 2.1351235}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_Father: {fileID: 509068681}
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1801357237
 GameObject:
@@ -7238,8 +7323,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 678640884}
-  m_RootOrder: 7
+  m_Father: {fileID: 509068681}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1801357239
 BoxCollider2D:
@@ -7466,7 +7551,7 @@ GameObject:
   - component: {fileID: 1883942408}
   - component: {fileID: 1883942407}
   m_Layer: 6
-  m_Name: Temp.BossTrigger (10)
+  m_Name: Table (21)
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7558,12 +7643,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1883942406}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 100.32, y: 4.38, z: 0}
+  m_LocalPosition: {x: 100.88299, y: 6.594864, z: 2.1351235}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_Father: {fileID: 509068681}
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1901665121
 GameObject:
@@ -7813,8 +7898,8 @@ Transform:
   m_LocalScale: {x: 0.6691, y: 0.6691, z: 0.6691}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 678640884}
-  m_RootOrder: 11
+  m_Father: {fileID: 220472692}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!70 &1956009294
 CapsuleCollider2D:
@@ -8450,12 +8535,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2144324766}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.83, y: 0.47, z: 2.1351235}
+  m_LocalPosition: {x: -4.83, y: 0.47000003, z: 2.1351235}
   m_LocalScale: {x: 0.6691, y: 0.6691, z: 0.6691}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 678640884}
-  m_RootOrder: 13
+  m_Father: {fileID: 220472692}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!70 &2144324768
 CapsuleCollider2D:

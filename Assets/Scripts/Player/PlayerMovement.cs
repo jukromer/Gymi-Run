@@ -15,13 +15,15 @@ public class PlayerMovement : MonoBehaviour
     public int jumpCount = 0;
     private BoxCollider2D boxCollider;
     public Animator animator;
-    public float fallGravityScale = 4f;
+    [SerializeField] float fallGravityScale = 5f;
     public float gravityScale = 3f;
     [SerializeField] private bool isGrounded;
     [SerializeField] GameObject playerObject;
     [SerializeField] BossMovement bossMovement;
     [SerializeField] float KillHeight;
     [SerializeField] PlayerHealth playerHealth;
+    bool isStomping;
+    [SerializeField] Screenshake screenshake;
     
     
 
@@ -33,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
         body.angularDrag = 0;
         boxCollider = GetComponent<BoxCollider2D>();
         animator.updateMode = AnimatorUpdateMode.UnscaledTime;
+        isStomping = false;
     }
 
     private void Update()
@@ -115,6 +118,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Stomp()
     {
+        isStomping = true;
         animator.SetBool("IsStomping", true);
         fallGravityScale = 40f;
         animator.SetBool("IsJumping", false);
@@ -127,7 +131,7 @@ public class PlayerMovement : MonoBehaviour
     
     private void OnCollisionEnter2D(Collision2D collision) 
     {
-        fallGravityScale = 4f;
+        fallGravityScale = 5f;
         isGrounded = true;
         jumpCount = 0;
         animator.SetBool("IsJumping", false);
@@ -136,6 +140,11 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("BossTrigger"))
         {
             bossMovement.setBossSpawnState(true);    
+        }
+        if(isStomping)
+        {
+            screenshake.Shake();
+            isStomping = false;
         }
     }
 
