@@ -7,7 +7,6 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] GameObject playerObject;
     [SerializeField] int CoinCount = 0;
-    [SerializeField] Transform playerTransform;
     [SerializeField] GameObject prot_bubble_object;
     [SerializeField] GameObject[] Coins;
     [SerializeField] Text amountCoins;
@@ -36,7 +35,6 @@ public class PlayerController : MonoBehaviour
         if(CoinCount == 10)
         {
             prot_bubble_object.SetActive(true);
-            prot_bubble_object.transform.SetParent(playerTransform);
             CoinCount = 0;
         }
     }
