@@ -11,12 +11,15 @@ public class PlayerHealth : MonoBehaviour
     public Transform playerPos;
     [SerializeField] DeathScreenController DeathScreenController;
     [SerializeField] BossMovement bossMovement;
+    [SerializeField] GameObject[] Hearts;
     
     
     void Start()
     {
+        Hearts = GameObject.FindGameObjectsWithTag("Heart");
         Time.timeScale = 1f;
-        currentHealth = maxHealth;        
+        currentHealth = maxHealth; 
+        print(Hearts.Length);       
     }
 
     void Update()
@@ -28,13 +31,14 @@ public class PlayerHealth : MonoBehaviour
     {
         if(currentHealth - amount <= 0)
         {
+            currentHealth = 0;
             Time.timeScale = 0f;
             bossMovement.setBossSpawnState(false);
-            //playerUI.amountHealth.text = "0";
             DeathScreenController.toggleDeathScreen(true);
         }
-        else
+        else if(currentHealth - amount > 0)
         {
+            Hearts[currentHealth - 1].SetActive(false);
             currentHealth = currentHealth - amount;
         }
 
@@ -45,6 +49,10 @@ public class PlayerHealth : MonoBehaviour
         if(currentHealth + amount > maxHealth)
         {
             currentHealth = maxHealth;
+            for(int i = 0; i < Hearts.Length; i++)
+            {
+                Hearts[i].SetActive(true);
+            }
         }
         else
         {

@@ -13,6 +13,7 @@ TagManager:
   - Prot_Bubble_Trigger
   - Coin
   - Heart
+  - Enemy
   layers:
   - Default
   - TransparentFX

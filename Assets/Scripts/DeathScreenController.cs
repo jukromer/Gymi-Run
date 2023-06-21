@@ -14,6 +14,7 @@ public class DeathScreenController : MonoBehaviour
     [SerializeField] BossMovement bossMovement;
     [SerializeField] PlayerMovement playerMovement;
     [SerializeField] PlayerController playerController;
+    [SerializeField] PlayerHealth playerHealth;
 
     void Start()
     {
@@ -33,6 +34,7 @@ public class DeathScreenController : MonoBehaviour
 
     public void Respawn()
     {
+        playerHealth.Heal(4);
         Time.timeScale = 1f;
         //playerMovement.body.constraints = RigidbodyConstraints2D.None;
         print("Respawn");
