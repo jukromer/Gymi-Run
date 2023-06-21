@@ -143,7 +143,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if(isStomping)
         {
-            screenshake.Shake();
+            //screenshake.Shake();
             isStomping = false;
         }
     }

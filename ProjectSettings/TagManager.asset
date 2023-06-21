@@ -12,6 +12,7 @@ TagManager:
   - Boss
   - Prot_Bubble_Trigger
   - Coin
+  - Heart
   layers:
   - Default
   - TransparentFX
