@@ -14,11 +14,16 @@ public class Prot_Bubble : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter2D(Collision2D collision) 
+    private void OnTriggerEnter2D(Collider2D collision) 
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Destroy(collision.gameObject);
+            collision.gameObject.SetActive(false);
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision) 
+    {
+        collision.gameObject.SetActive(true);
     }
 }

@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D body;
     [SerializeField] private Transform player;
     [SerializeField] private float speed; //7 war gut
-    [SerializeField] private float jumpHeight; //12 war gut
+    [SerializeField] private float jumpHeight; //15 war gut
     [SerializeField] private LayerMask groundLayer;
     public float airspeed = 1.0F; //0.5
     public int jumpCount = 0;
@@ -19,11 +19,11 @@ public class PlayerMovement : MonoBehaviour
     public float gravityScale = 3f;
     [SerializeField] private bool isGrounded;
     [SerializeField] GameObject playerObject;
-    [SerializeField] BossMovement bossMovement;
+    [SerializeField] BossController bossController;
     [SerializeField] float KillHeight;
     [SerializeField] PlayerHealth playerHealth;
     bool isStomping;
-    [SerializeField] Screenshake screenshake;
+    //[SerializeField] Screenshake screenshake;
     
     
 
@@ -137,10 +137,10 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("IsJumping", false);
         animator.SetBool("IsDoubleJumping", false);
         animator.SetBool("IsStomping", false);
-        if (collision.gameObject.CompareTag("BossTrigger"))
-        {
-            bossMovement.setBossSpawnState(true);    
-        }
+        // if (collision.gameObject.CompareTag("BossTrigger"))
+        // {
+        //     bossController.setSpawnState(true);    
+        // }
         if(isStomping)
         {
             //screenshake.Shake();

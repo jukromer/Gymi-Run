@@ -13,10 +13,11 @@ public class BossMovement : MonoBehaviour
     bool movingUp;
     float topEdge;
     float bottomEdge;
-    [SerializeField] bool isSpawned;
+    //[SerializeField] bool isSpawned;
     [SerializeField] float speed;
     //[SerializeField] float movementDistance;
     private Vector2 bossRestingPos;
+    [SerializeField] BossController bossController;
 
     void Start()
     {
@@ -28,9 +29,9 @@ public class BossMovement : MonoBehaviour
 
     void Update()
     {
-        if(isSpawned)
+        if(bossController.getSpawnState())
         {
-            BossSequence();
+            BossMovingSequence();
         }
         else
         {
@@ -38,7 +39,7 @@ public class BossMovement : MonoBehaviour
         }
     }
 
-    void BossSequence()
+    void BossMovingSequence()
     {
         if(movingUp)
         {
@@ -72,24 +73,9 @@ public class BossMovement : MonoBehaviour
         return randomValue;
     }
 
-    public void setBossSpawnState(bool state)
-    {
-        isSpawned = state;
-    }
-
-    private IEnumerator WaitForTime(int time)
-    {
-        yield return new WaitForSeconds(time);
-    }
-
-    private void Wait(int seconds)
-    {
-        StartCoroutine(WaitForTime(seconds));
-    }
-
     public void resetBossPos()
     {
         boss.position = bossRestingPos;
-        isSpawned = false;
+        bossController.setSpawnState(false);
     }
 }

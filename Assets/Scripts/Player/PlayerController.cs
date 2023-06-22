@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject prot_bubble_object;
     [SerializeField] GameObject[] Coins;
     [SerializeField] Text amountCoins;
+    [SerializeField] BossController bossController; 
 
     void Start()
     {
@@ -38,15 +39,6 @@ public class PlayerController : MonoBehaviour
             CoinCount = 0;
         }
     }
-    
-    // private void OnCollisionEnter2D(Collision2D collision) 
-    // {
-    //     if(collision.gameObject.CompareTag("Coin"))
-    //     {
-    //         CoinCount++;
-    //         Destroy(collision.gameObject);
-    //     }
-    // }
 
     private void OnTriggerEnter2D(Collider2D collider) 
     {
@@ -56,7 +48,11 @@ public class PlayerController : MonoBehaviour
             amountCoins.text = CoinCount.ToString();
             activateShield();
             collider.gameObject.SetActive(false);
-        } 
+        }
+        if (collider.gameObject.CompareTag("BossTrigger"))
+        {
+            bossController.setSpawnState(true);    
+        }
     }
 
     public void resetCoins()
@@ -68,4 +64,6 @@ public class PlayerController : MonoBehaviour
             amountCoins.text = CoinCount.ToString();
         } 
     }
+
+
 }
