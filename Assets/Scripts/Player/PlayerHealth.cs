@@ -12,10 +12,12 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] DeathScreenController DeathScreenController;
     [SerializeField] BossMovement bossMovement;
     [SerializeField] GameObject[] Hearts;
+    [SerializeField] GameObject DamageVignette;
     
     
     void Start()
     {
+        DamageVignette.SetActive(false);
         Hearts = GameObject.FindGameObjectsWithTag("Heart");
         Time.timeScale = 1f;
         currentHealth = maxHealth; 
@@ -38,10 +40,11 @@ public class PlayerHealth : MonoBehaviour
         }
         else if(currentHealth - amount > 0)
         {
+            DamageVignette.SetActive(true);
             Hearts[currentHealth - 1].SetActive(false);
             currentHealth = currentHealth - amount;
         }
-
+        Invoke("turnVignetteOff", 0.15f);
     }
 
     public void Heal(int amount)
@@ -58,5 +61,10 @@ public class PlayerHealth : MonoBehaviour
         {
             currentHealth = currentHealth + amount;
         }
+    }
+
+    private void turnVignetteOff()
+    {
+        DamageVignette.SetActive(false);
     }
 }
