@@ -49,10 +49,6 @@ public class PlayerController : MonoBehaviour
             activateShield();
             collider.gameObject.SetActive(false);
         }
-        if (collider.gameObject.CompareTag("BossTrigger"))
-        {
-            bossController.setSpawnState(true);    
-        }
     }
 
     public void resetCoins()

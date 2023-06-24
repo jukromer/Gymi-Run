@@ -467,6 +467,7 @@ GameObject:
   - component: {fileID: 77045784}
   - component: {fileID: 77045783}
   - component: {fileID: 77045782}
+  - component: {fileID: 77045785}
   m_Layer: 0
   m_Name: BossTrigger-Placeholder
   m_TagString: BossTrigger
@@ -567,6 +568,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &77045785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 77045781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9eaa13df9d3f1e04198548551f514f0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Boss: {fileID: 808185559}
+  bossController: {fileID: 808185564}
 --- !u!1 &141954271
 GameObject:
   m_ObjectHideFlags: 0
@@ -3616,6 +3631,7 @@ GameObject:
   - component: {fileID: 808185562}
   - component: {fileID: 808185561}
   - component: {fileID: 808185564}
+  - component: {fileID: 808185565}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Boss
@@ -3715,6 +3731,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ca502607eae6d74f8cf191f17552602, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSpawned: 0
+  bossAttack: {fileID: 808185565}
+  bossMovement: {fileID: 808185561}
+--- !u!114 &808185565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 808185559}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 628d04046f0a0de4c9fb260f3cdfc01a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 8688811387668836637, guid: 30c2f15896055304a8e73329028cf90e, type: 3}
+  playerHealth: {fileID: 338426808}
+  shootInterval: 2
+  BossTransform: {fileID: 808185560}
+  amountAttacks: 5
+  angleDif: 15
 --- !u!1 &839348383
 GameObject:
   m_ObjectHideFlags: 0

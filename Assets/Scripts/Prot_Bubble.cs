@@ -24,6 +24,9 @@ public class Prot_Bubble : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision) 
     {
-        collision.gameObject.SetActive(true);
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            collision.gameObject.SetActive(true);
+        }
     }
 }
