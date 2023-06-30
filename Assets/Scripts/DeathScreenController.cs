@@ -11,7 +11,7 @@ public class DeathScreenController : MonoBehaviour
     public Transform playerSpawn;
     [SerializeField] GameObject DeathScreen;
     public bool DeathScreenOn;
-    [SerializeField] BossMovement bossMovement;
+    [SerializeField] BossTrigger bossTrigger;
     [SerializeField] PlayerMovement playerMovement;
     [SerializeField] PlayerController playerController;
     [SerializeField] PlayerHealth playerHealth;
@@ -38,7 +38,7 @@ public class DeathScreenController : MonoBehaviour
         Time.timeScale = 1f;
         //playerMovement.body.constraints = RigidbodyConstraints2D.None;
         print("Respawn");
-        bossMovement.resetBossPos();
+        bossTrigger.toggleBossState(false);
         playerSpawn.position = RespawnPos;
         toggleDeathScreen(false);  
         playerController.resetCoins();
@@ -49,6 +49,5 @@ public class DeathScreenController : MonoBehaviour
         //playerMovement.body.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
         DeathScreen.SetActive(state);
         DeathScreenOn = state;
-
     }
 }

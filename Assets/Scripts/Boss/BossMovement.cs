@@ -73,9 +73,9 @@ public class BossMovement : MonoBehaviour
         return randomValue;
     }
 
-    public void resetBossPos()
-    {
-        boss.position = bossRestingPos;
-        bossController.setSpawnState(false);
-    }
+    // public void resetBossPos()
+    // {
+    //     boss.position = bossRestingPos;
+    //     bossController.setSpawnState(false);
+    // }
 }

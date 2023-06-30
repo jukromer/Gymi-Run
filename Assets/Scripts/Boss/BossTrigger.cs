@@ -8,7 +8,7 @@ public class BossTrigger : MonoBehaviour
     [SerializeField] BossController bossController;
     void Start()
     {
-        Boss.SetActive(false);
+        toggleBossState(false);
     }
 
     // Update is called once per frame
@@ -21,9 +21,14 @@ public class BossTrigger : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("Player"))
         {
-            Boss.SetActive(true);
+            toggleBossState(true);
             bossController.setSpawnState(true);
         }
+    }
+
+    public void toggleBossState(bool state)
+    {
+        Boss.SetActive(state);
     }
 }
 
