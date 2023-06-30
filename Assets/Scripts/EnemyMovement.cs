@@ -7,10 +7,11 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] Transform enemyTransform;
     [SerializeField] float speed;
     [SerializeField] GameObject enemy;
+    private float randomRotation;
 
     void Start()
     {
-        
+
     }
 
  
@@ -30,6 +31,11 @@ public class EnemyMovement : MonoBehaviour
         {
             Destroy(this);
         }
+    }
+
+    private float randomValue()
+    {
+        return Random.Range(-10f, 10f);
     }
 }
 

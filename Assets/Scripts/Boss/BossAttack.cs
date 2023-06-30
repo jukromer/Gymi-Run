@@ -34,6 +34,7 @@ public class BossAttack : MonoBehaviour
             for (int i = 0; i < shots; i++)
             {
                 GameObject enemy = Instantiate(enemyPrefab, BossTransform.position, Quaternion.identity);
+                //BossTransform.Rotate(0f, 0f, randomValue());
                 yield return new WaitForSeconds(shootInterval);
             }
             yield return new WaitForSeconds(roundInterval);
@@ -48,5 +49,10 @@ public class BossAttack : MonoBehaviour
     private Vector2 shootingAngle(float Angle)
     {
         return Quaternion.Euler(0f, 0f, Angle) * Vector2.right;
+    }
+
+    private float randomValue()
+    {
+        return Random.Range(-60f, 60f);
     }
 }
