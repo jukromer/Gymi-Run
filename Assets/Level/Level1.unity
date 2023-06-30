@@ -373,7 +373,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &77045782
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -460,7 +460,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 77045781}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 47.63, y: 4.96, z: 0}
+  m_LocalPosition: {x: 51.29, y: 1.94, z: 0}
   m_LocalScale: {x: 1, y: 3.6049, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3457,17 +3457,21 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 808185559}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 628d04046f0a0de4c9fb260f3cdfc01a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 8688811387668836637, guid: 30c2f15896055304a8e73329028cf90e, type: 3}
   playerHealth: {fileID: 338426808}
+  roundInterval: 0
   shootInterval: 2
   BossTransform: {fileID: 808185560}
   amountAttacks: 5
   angleDif: 15
+  speed: 2
+  rounds: 3
+  shots: 6
 --- !u!1 &839348383
 GameObject:
   m_ObjectHideFlags: 0

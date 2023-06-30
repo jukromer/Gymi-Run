@@ -7,10 +7,15 @@ public class BossAttack : MonoBehaviour
     [SerializeField] GameObject enemyPrefab;
     [SerializeField] PlayerHealth playerHealth;
     bool isAttacking = false;
+    [SerializeField] float roundInterval;
     [SerializeField] float shootInterval;
     [SerializeField] Transform BossTransform;
     [SerializeField] float amountAttacks;
     [SerializeField] float angleDif;
+    [SerializeField] float speed;
+    [SerializeField] int rounds;
+    [SerializeField] int shots;
+    private int shotCount;
     
     void Start()
     {
@@ -24,13 +29,15 @@ public class BossAttack : MonoBehaviour
 
     public IEnumerator Shoot()
     {
-        GameObject enemy = Instantiate(enemyPrefab, BossTransform.position, Quaternion.identity);
-        Transform enemyTransform = GetComponent<Transform>();
-        for(float i = 0; i < amountAttacks; i++)
+        for (int a = 0; a < rounds; a++)
         {
-            enemyTransform.position = shootingAngle(angleDif * i);
+            for (int i = 0; i < shots; i++)
+            {
+                GameObject enemy = Instantiate(enemyPrefab, BossTransform.position, Quaternion.identity);
+                yield return new WaitForSeconds(shootInterval);
+            }
+            yield return new WaitForSeconds(roundInterval);
         }
-        yield return new WaitForSeconds(shootInterval);
     }
 
     public void setAttackState(bool state)
