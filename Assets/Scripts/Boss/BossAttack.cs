@@ -6,6 +6,7 @@ public class BossAttack : MonoBehaviour
 {
     [SerializeField] GameObject enemyPrefab;
     [SerializeField] PlayerHealth playerHealth;
+    private GameObject [] player;
     bool isAttacking = false;
     [SerializeField] float roundInterval;
     [SerializeField] float shootInterval;
@@ -19,7 +20,9 @@ public class BossAttack : MonoBehaviour
     
     void Start()
     {
-        StartCoroutine(Shoot());       
+        StartCoroutine(Shoot());   
+        player = GameObject.FindGameObjectsWithTag("Player");
+        playerHealth = player[0].GetComponent<PlayerHealth>();    
     }
 
     void Update()
@@ -34,7 +37,6 @@ public class BossAttack : MonoBehaviour
             for (int i = 0; i < shots; i++)
             {
                 GameObject enemy = Instantiate(enemyPrefab, BossTransform.position, Quaternion.identity);
-                //BossTransform.Rotate(0f, 0f, randomValue());
                 yield return new WaitForSeconds(shootInterval);
             }
             yield return new WaitForSeconds(roundInterval);
@@ -53,6 +55,6 @@ public class BossAttack : MonoBehaviour
 
     private float randomValue()
     {
-        return Random.Range(-60f, 60f);
+        return Random.Range(-40f, 40f);
     }
 }

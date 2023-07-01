@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class BossMovement : MonoBehaviour
 {
-    [SerializeField] Transform player;
+    [SerializeField] Transform playerTransform;
+    private GameObject [] player;
     Vector2 playerPos;
     [SerializeField] Animator animator;
     public Transform boss;
@@ -21,10 +22,14 @@ public class BossMovement : MonoBehaviour
 
     void Start()
     {
-        topEdge = player.position.y + movementDistance();
-        bottomEdge = player.position.y - movementDistance();
+        player = GameObject.FindGameObjectsWithTag("Player");
+        playerTransform = player[0].GetComponent<Transform>();
+        topEdge = playerTransform.position.y + movementDistance();
+        bottomEdge = playerTransform.position.y - movementDistance();
         bossRestingPos = boss.position;
         bossBody = GetComponent<Rigidbody2D>();
+        player = GameObject.FindGameObjectsWithTag("Player");
+        playerTransform = player[0].GetComponent<Transform>();
     }
 
     void Update()
@@ -45,11 +50,11 @@ public class BossMovement : MonoBehaviour
         {
             if (boss.position.y < topEdge)
             {
-                boss.position = new Vector2(player.position.x + 10, boss.position.y + speed * Time.deltaTime);
+                boss.position = new Vector2(playerTransform.position.x + 10, boss.position.y + speed * Time.deltaTime);
             }
             else
             {
-                topEdge = player.position.y + movementDistance();
+                topEdge = playerTransform.position.y + movementDistance();
                 movingUp = false;
             }
         }
@@ -57,11 +62,11 @@ public class BossMovement : MonoBehaviour
         {
             if (boss.position.y > bottomEdge)
             {
-                boss.position = new Vector2(player.position.x + 10, boss.position.y - speed * Time.deltaTime);   
+                boss.position = new Vector2(playerTransform.position.x + 10, boss.position.y - speed * Time.deltaTime);   
             }
             else
             {
-                bottomEdge = player.position.y - movementDistance();
+                bottomEdge = playerTransform.position.y - movementDistance();
                 movingUp = true;
             }
         }

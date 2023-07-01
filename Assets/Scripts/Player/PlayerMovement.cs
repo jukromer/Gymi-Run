@@ -19,7 +19,6 @@ public class PlayerMovement : MonoBehaviour
     public float gravityScale = 3f;
     [SerializeField] private bool isGrounded;
     [SerializeField] GameObject playerObject;
-    [SerializeField] BossController bossController;
     [SerializeField] float KillHeight;
     [SerializeField] PlayerHealth playerHealth;
     bool isStomping;
@@ -137,10 +136,6 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("IsJumping", false);
         animator.SetBool("IsDoubleJumping", false);
         animator.SetBool("IsStomping", false);
-        // if (collision.gameObject.CompareTag("BossTrigger"))
-        // {
-        //     bossController.setSpawnState(true);    
-        // }
         if(isStomping)
         {
             //screenshake.Shake();

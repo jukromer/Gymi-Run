@@ -10,7 +10,7 @@ public class BossController : MonoBehaviour
 
     void Start()
     {
-
+        setSpawnState(true);
     }
 
     void Update()

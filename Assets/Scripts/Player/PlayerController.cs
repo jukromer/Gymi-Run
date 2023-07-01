@@ -9,8 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] int CoinCount = 0;
     [SerializeField] GameObject prot_bubble_object;
     [SerializeField] GameObject[] Coins;
-    [SerializeField] Text amountCoins;
-    [SerializeField] BossController bossController; 
+    [SerializeField] Text amountCoins; 
 
     void Start()
     {

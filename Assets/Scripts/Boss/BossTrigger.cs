@@ -6,12 +6,12 @@ public class BossTrigger : MonoBehaviour
 {
     [SerializeField] GameObject Boss;
     [SerializeField] BossController bossController;
+    [SerializeField] Transform playerTransform;
     void Start()
     {
-        toggleBossState(false);
+        
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -21,7 +21,8 @@ public class BossTrigger : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("Player"))
         {
-            toggleBossState(true);
+            Vector2 SpawnPos = new Vector2(playerTransform.position.x, playerTransform.position.y + 10);
+            Instantiate(Boss, SpawnPos, Quaternion.identity);
             bossController.setSpawnState(true);
         }
     }

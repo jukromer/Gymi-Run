@@ -38,7 +38,6 @@ public class DeathScreenController : MonoBehaviour
         Time.timeScale = 1f;
         //playerMovement.body.constraints = RigidbodyConstraints2D.None;
         print("Respawn");
-        bossTrigger.toggleBossState(false);
         playerSpawn.position = RespawnPos;
         toggleDeathScreen(false);  
         playerController.resetCoins();

@@ -13,6 +13,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] BossController bossController;
     [SerializeField] GameObject[] Hearts;
     [SerializeField] GameObject DamageVignette;
+    private GameObject [] Boss;
     
     
     void Start()
@@ -35,7 +36,11 @@ public class PlayerHealth : MonoBehaviour
         {
             currentHealth = 0;
             Time.timeScale = 0f;
-            bossController.setSpawnState(false);
+            Boss = GameObject.FindGameObjectsWithTag("Boss");
+            if (Boss.Length > 0)
+            {
+                Destroy(Boss[0]);
+            }
             DeathScreenController.toggleDeathScreen(true);
         }
         else if(currentHealth - amount > 0)

@@ -8,10 +8,12 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] GameObject enemy;
     private float randomRotation;
+    [SerializeField] float timeb4Kill;
 
     void Start()
     {
-
+        randomRotation = randomValue();
+        Invoke("Kill", timeb4Kill);
     }
 
  
@@ -22,7 +24,7 @@ public class EnemyMovement : MonoBehaviour
 
     public void Fly()
     {
-        enemyTransform.position = new Vector2(enemyTransform.position.x - speed * Time.deltaTime, enemyTransform.position.y);
+        enemyTransform.position = new Vector2(enemyTransform.position.x - speed * Time.deltaTime, enemyTransform.position.y + randomRotation * Time.deltaTime);
     }
 
     private void OnCollisionEnter2D(Collision2D collision) 
@@ -37,5 +39,11 @@ public class EnemyMovement : MonoBehaviour
     {
         return Random.Range(-10f, 10f);
     }
+
+    private void Kill()
+    {
+        Destroy(enemy);
+    }
+
 }
 
