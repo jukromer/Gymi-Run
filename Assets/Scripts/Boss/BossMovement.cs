@@ -34,14 +34,7 @@ public class BossMovement : MonoBehaviour
 
     void Update()
     {
-        if(bossController.getSpawnState())
-        {
-            BossMovingSequence();
-        }
-        else
-        {
-            boss.position = bossRestingPos;
-        }
+        BossMovingSequence();
     }
 
     void BossMovingSequence()
@@ -74,7 +67,7 @@ public class BossMovement : MonoBehaviour
 
     float movementDistance()
     {
-        float randomValue = Random.Range(1.0f, 3.0f);
+        float randomValue = Random.Range(0.5f, 2.0f);
         return randomValue;
     }
 

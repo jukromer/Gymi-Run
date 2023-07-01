@@ -99,7 +99,7 @@ MonoBehaviour:
   playerTransform: {fileID: 0}
   animator: {fileID: 3756433588660114543}
   boss: {fileID: 3756433588210292335}
-  speed: 2
+  speed: 4
   bossController: {fileID: 3756433588210292331}
 --- !u!114 &3756433588210292331
 MonoBehaviour:
@@ -113,7 +113,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ca502607eae6d74f8cf191f17552602, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isSpawned: 1
   bossAttack: {fileID: 3756433588210292330}
   bossMovement: {fileID: 3756433588210292334}
 --- !u!114 &3756433588210292330

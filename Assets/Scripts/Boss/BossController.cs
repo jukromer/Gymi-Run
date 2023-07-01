@@ -4,30 +4,16 @@ using UnityEngine;
 
 public class BossController : MonoBehaviour
 {
-    [SerializeField] bool isSpawned;
     [SerializeField] BossAttack bossAttack;
     [SerializeField] BossMovement bossMovement;
 
     void Start()
     {
-        setSpawnState(true);
+        
     }
 
     void Update()
     {
-        if(getSpawnState())
-        {
-            bossAttack.Shoot();
-        }
-    }
-
-    public bool getSpawnState()
-    {
-        return isSpawned;
-    }
-
-    public void setSpawnState(bool state)
-    {
-        isSpawned = state;
+        
     }
 }

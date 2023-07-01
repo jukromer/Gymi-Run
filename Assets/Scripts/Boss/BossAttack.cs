@@ -37,6 +37,8 @@ public class BossAttack : MonoBehaviour
             for (int i = 0; i < shots; i++)
             {
                 GameObject enemy = Instantiate(enemyPrefab, BossTransform.position, Quaternion.identity);
+                Transform enemyTransform = enemy.GetComponent<Transform>();
+                enemyTransform.Rotate(0f,0f, randomValue());
                 yield return new WaitForSeconds(shootInterval);
             }
             yield return new WaitForSeconds(roundInterval);
@@ -55,6 +57,6 @@ public class BossAttack : MonoBehaviour
 
     private float randomValue()
     {
-        return Random.Range(-40f, 40f);
+        return Random.Range(-30f, 30f);
     }
 }

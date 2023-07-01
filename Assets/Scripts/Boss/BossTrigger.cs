@@ -7,9 +7,10 @@ public class BossTrigger : MonoBehaviour
     [SerializeField] GameObject Boss;
     [SerializeField] BossController bossController;
     [SerializeField] Transform playerTransform;
+    [SerializeField] bool BossSpawnState;
     void Start()
     {
-        
+        setBossSpawnState(false);
     }
 
     void Update()
@@ -23,13 +24,18 @@ public class BossTrigger : MonoBehaviour
         {
             Vector2 SpawnPos = new Vector2(playerTransform.position.x, playerTransform.position.y + 10);
             Instantiate(Boss, SpawnPos, Quaternion.identity);
-            bossController.setSpawnState(true);
+            setBossSpawnState(true);
         }
     }
 
-    public void toggleBossState(bool state)
+    public void setBossSpawnState(bool state)
     {
-        Boss.SetActive(state);
+        BossSpawnState = state;
+    }
+
+    public bool getBossSpawnState()
+    {
+        return BossSpawnState;
     }
 }
 
