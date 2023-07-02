@@ -7,9 +7,11 @@ public class EnemyDamage : MonoBehaviour
     [SerializeField] int Damage;
     public PlayerHealth playerHealth;
     private GameObject [] player;
-    // Start is called before the first frame update
+    [SerializeField] int defaultDamage;
+    
     void Start()
     {
+        Damage = defaultDamage;
         if(playerHealth == null)
         {
             player = GameObject.FindGameObjectsWithTag("Player");
@@ -17,7 +19,7 @@ public class EnemyDamage : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         
@@ -29,5 +31,15 @@ public class EnemyDamage : MonoBehaviour
         {
             playerHealth.Damage(Damage);
         }    
+    }
+
+    public void setEnemyDamage(int newDamage)
+    {
+        Damage = newDamage;
+    }
+
+    public void setDeafaultEnemyDamage()
+    {
+        Damage = defaultDamage;
     }
 }

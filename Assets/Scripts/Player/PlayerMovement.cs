@@ -24,7 +24,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] PlayerHealth playerHealth;
     bool isStomping;
     private string currentState;
-    //[SerializeField] Screenshake screenshake;
     
     
 

@@ -15,6 +15,7 @@ public class DeathScreenController : MonoBehaviour
     [SerializeField] PlayerMovement playerMovement;
     [SerializeField] PlayerController playerController;
     [SerializeField] PlayerHealth playerHealth;
+    [SerializeField] PlayerPowerUps playerPowerUps;
 
     void Start()
     {
@@ -36,16 +37,16 @@ public class DeathScreenController : MonoBehaviour
     {
         playerHealth.Heal(4);
         Time.timeScale = 1f;
-        //playerMovement.body.constraints = RigidbodyConstraints2D.None;
         print("Respawn");
         playerSpawn.position = RespawnPos;
         toggleDeathScreen(false);  
         playerController.resetCoins();
+        playerPowerUps.toggleProtBubble(false);
+        playerPowerUps.togglePowerUps(false);
     }
 
     public void toggleDeathScreen(bool state)
     {
-        //playerMovement.body.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
         DeathScreen.SetActive(state);
         DeathScreenOn = state;
     }

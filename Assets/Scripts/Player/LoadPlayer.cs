@@ -11,6 +11,7 @@ public class LoadPlayer : MonoBehaviour
     public Transform parentObject;
     [SerializeField] bool DevMode = false;
     public TMP_Text DevModeMessage;
+    [SerializeField] PlayerController playerController;
     
 
     void Start()
@@ -20,6 +21,7 @@ public class LoadPlayer : MonoBehaviour
         {
             targetName = "PascalCut";
             DevModeMessage.text = "DevMode is activated! <Pascal> will always automatically be chosen as the played character. Deactivate DevMode in Player --> LoadPlayer --> DevMode.";
+            playerController.setPlayerCoinCount(9);
         }
         else
         {

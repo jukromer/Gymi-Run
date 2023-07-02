@@ -32,24 +32,27 @@ public class PlayerHealth : MonoBehaviour
 
     public void Damage(int amount)
     {
-        if(currentHealth - amount <= 0)
+        if (amount > 0)
         {
-            currentHealth = 0;
-            Time.timeScale = 0f;
-            Boss = GameObject.FindGameObjectsWithTag("Boss");
-            if (Boss.Length > 0)
+            if(currentHealth - amount <= 0)
             {
-                Destroy(Boss[0]);
+                currentHealth = 0;
+                Time.timeScale = 0f;
+                Boss = GameObject.FindGameObjectsWithTag("Boss");
+                if (Boss.Length > 0)
+                {
+                    Destroy(Boss[0]);
+                }
+                DeathScreenController.toggleDeathScreen(true);
             }
-            DeathScreenController.toggleDeathScreen(true);
+            else if(currentHealth - amount > 0)
+            {
+                DamageVignette.SetActive(true);
+                Hearts[currentHealth - 1].SetActive(false);
+                currentHealth = currentHealth - amount;
+            }
+            Invoke("turnVignetteOff", 0.15f);
         }
-        else if(currentHealth - amount > 0)
-        {
-            DamageVignette.SetActive(true);
-            Hearts[currentHealth - 1].SetActive(false);
-            currentHealth = currentHealth - amount;
-        }
-        Invoke("turnVignetteOff", 0.15f);
     }
 
     public void Heal(int amount)
@@ -65,6 +68,7 @@ public class PlayerHealth : MonoBehaviour
         else
         {
             currentHealth = currentHealth + amount;
+            Hearts[currentHealth -1].SetActive(true);
         }
     }
 

@@ -129,6 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 1
   playerHealth: {fileID: 0}
+  defaultDamage: 1
 --- !u!114 &-5966987167758118164
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,9 +7,9 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] GameObject playerObject;
     [SerializeField] int CoinCount = 0;
-    [SerializeField] GameObject prot_bubble_object;
     [SerializeField] GameObject[] Coins;
-    [SerializeField] Text amountCoins; 
+    [SerializeField] Text amountCoins;
+    [SerializeField] PlayerPowerUps playerPowerUps; 
 
     void Start()
     {
@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
         {
             print("Es wurde kein Spieler ausgewählt, gehe über das Main Menu zurück zur Character Selection (P)");
         }
-        prot_bubble_object.SetActive(false);
+        
         for(int i = 0; i < Coins.Length; i++)
         {
             Coins[i].SetActive(true);
@@ -30,23 +30,17 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    private void activateShield()
-    {
-        if(CoinCount == 10)
-        {
-            prot_bubble_object.SetActive(true);
-            CoinCount = 0;
-        }
-    }
-
     private void OnTriggerEnter2D(Collider2D collider) 
     {
         if(collider.gameObject.CompareTag("Coin"))
         {
             CoinCount++;
             amountCoins.text = CoinCount.ToString();
-            activateShield();
             collider.gameObject.SetActive(false);
+            if(CoinCount == 10)
+            {
+                playerPowerUps.togglePowerUps(true);
+            }
         }
     }
 
@@ -60,5 +54,13 @@ public class PlayerController : MonoBehaviour
         } 
     }
 
+    public int getPlayerCoinCount()
+    {
+        return CoinCount;
+    }
 
+    public void setPlayerCoinCount(int amount)
+    {
+        CoinCount = amount;
+    }
 }

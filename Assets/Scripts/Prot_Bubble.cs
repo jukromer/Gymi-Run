@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Prot_Bubble : MonoBehaviour
 {
+    private GameObject enemy;
+    private EnemyDamage enemyDamage;
+
     void Start()
     {
         
@@ -18,15 +21,17 @@ public class Prot_Bubble : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            collision.gameObject.SetActive(false);
+            enemy = collision.gameObject;
+            enemyDamage = enemy.GetComponent<EnemyDamage>();
+            enemyDamage.setEnemyDamage(0);
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision) 
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject == enemy)
         {
-            collision.gameObject.SetActive(true);
+            enemyDamage.setDeafaultEnemyDamage();
         }
     }
 }
