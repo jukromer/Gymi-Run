@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public int jumpCount = 0;
     private BoxCollider2D boxCollider;
     public Animator animator;
+    [SerializeField] Animator cameraAnimator;
     [SerializeField] float fallGravityScale = 5f;
     public float gravityScale = 3f;
     [SerializeField] private bool isGrounded;
@@ -22,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float KillHeight;
     [SerializeField] PlayerHealth playerHealth;
     bool isStomping;
+    private string currentState;
     //[SerializeField] Screenshake screenshake;
     
     
@@ -138,7 +140,7 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("IsStomping", false);
         if(isStomping)
         {
-            //screenshake.Shake();
+            ChangeAnimationState("CameraShake");
             isStomping = false;
         }
     }
@@ -146,6 +148,13 @@ public class PlayerMovement : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision) 
     {
         isGrounded = false;
+    }
+
+    public void ChangeAnimationState(string newState)
+    {
+        // if(currentState == newState) return;
+        cameraAnimator.Play(newState, -1, 0f);
+        currentState = newState;
     }
    
 }
