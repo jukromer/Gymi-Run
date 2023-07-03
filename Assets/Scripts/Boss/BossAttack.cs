@@ -11,8 +11,6 @@ public class BossAttack : MonoBehaviour
     [SerializeField] float roundInterval;
     [SerializeField] float shootInterval;
     [SerializeField] Transform BossTransform;
-    [SerializeField] float amountAttacks;
-    [SerializeField] float angleDif;
     [SerializeField] float speed;
     [SerializeField] int rounds;
     [SerializeField] int shots;
@@ -57,6 +55,6 @@ public class BossAttack : MonoBehaviour
 
     private float randomValue()
     {
-        return Random.Range(-30f, 30f);
+        return Random.Range(-12f, 12f);
     }
 }

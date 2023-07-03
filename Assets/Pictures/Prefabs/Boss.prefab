@@ -129,14 +129,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 8688811387668836637, guid: 30c2f15896055304a8e73329028cf90e, type: 3}
   playerHealth: {fileID: 0}
-  roundInterval: 2
+  roundInterval: 5
   shootInterval: 1
   BossTransform: {fileID: 3756433588210292335}
-  amountAttacks: 5
-  angleDif: 15
   speed: 3
   rounds: 3
-  shots: 6
+  shots: 10
 --- !u!1001 &3756433588660114530
 PrefabInstance:
   m_ObjectHideFlags: 0

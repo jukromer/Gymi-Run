@@ -62,5 +62,6 @@ public class PlayerController : MonoBehaviour
     public void setPlayerCoinCount(int amount)
     {
         CoinCount = amount;
+        amountCoins.text = CoinCount.ToString();
     }
 }

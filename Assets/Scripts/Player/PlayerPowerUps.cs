@@ -20,13 +20,13 @@ public class PlayerPowerUps : MonoBehaviour
         {
             toggleProtBubble(true);
             togglePowerUps(false);
-            playerController.resetCoins();
+            playerController.setPlayerCoinCount(playerController.getPlayerCoinCount() - 10);
         }
         if(PowerUpsActive && Input.GetKeyDown(KeyCode.H))
         {
             addHealth();
             togglePowerUps(false);
-            playerController.resetCoins();
+            playerController.setPlayerCoinCount(playerController.getPlayerCoinCount() - 10);
         }
     }
 
