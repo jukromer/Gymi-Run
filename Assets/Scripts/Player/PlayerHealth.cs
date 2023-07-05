@@ -14,6 +14,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] GameObject[] Hearts;
     [SerializeField] GameObject DamageVignette;
     private GameObject [] Boss;
+    [SerializeField] Animator heartAnimator; 
     
     
     void Start()
@@ -22,7 +23,7 @@ public class PlayerHealth : MonoBehaviour
         Hearts = GameObject.FindGameObjectsWithTag("Heart");
         Time.timeScale = 1f;
         currentHealth = maxHealth; 
-        print(Hearts.Length);       
+        heartAnimator.SetBool("IsBeating", false);       
     }
 
     void Update()
@@ -52,6 +53,15 @@ public class PlayerHealth : MonoBehaviour
                 currentHealth = currentHealth - amount;
             }
             Invoke("turnVignetteOff", 0.15f);
+            if(currentHealth == 1)
+            {
+                heartAnimator.SetBool("IsBeating", true);
+                DamageVignette.SetActive(true);
+            }
+            else
+            {
+                heartAnimator.SetBool("IsBeating", false);
+            }
         }
     }
 
@@ -70,6 +80,8 @@ public class PlayerHealth : MonoBehaviour
             currentHealth = currentHealth + amount;
             Hearts[currentHealth -1].SetActive(true);
         }
+        heartAnimator.SetBool("IsBeating", false);
+        DamageVignette.SetActive(false);
     }
 
     private void turnVignetteOff()

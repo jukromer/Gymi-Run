@@ -7,21 +7,15 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] GameObject playerObject;
     [SerializeField] int CoinCount = 0;
-    [SerializeField] GameObject[] Coins;
     [SerializeField] Text amountCoins;
-    [SerializeField] PlayerPowerUps playerPowerUps; 
+    [SerializeField] PlayerPowerUps playerPowerUps;
+    [SerializeField] CoinGenerator coinGenerator; 
 
     void Start()
     {
-        Coins = GameObject.FindGameObjectsWithTag("Coin");
         if(playerObject.transform.childCount < 1)
         {
             print("Es wurde kein Spieler ausgewählt, gehe über das Main Menu zurück zur Character Selection (P)");
-        }
-        
-        for(int i = 0; i < Coins.Length; i++)
-        {
-            Coins[i].SetActive(true);
         }
     }
 
@@ -46,12 +40,10 @@ public class PlayerController : MonoBehaviour
 
     public void resetCoins()
     {
-        for(int i = 0; i < Coins.Length; i++)
-        {
-            Coins[i].SetActive(true);
-            CoinCount = 0;
-            amountCoins.text = CoinCount.ToString();
-        } 
+        coinGenerator.deleteCoins();
+        coinGenerator.spawnCoins();
+        CoinCount = 0;
+        amountCoins.text = CoinCount.ToString();
     }
 
     public int getPlayerCoinCount()
