@@ -5376,6 +5376,7 @@ MonoBehaviour:
   bookAmount: 10
   coin: {fileID: 1239753099509082747, guid: 178dd5858dda5f243bccb56ae7126d13, type: 3}
   Coins: {fileID: 220472692}
+  CoinList: []
 --- !u!4 &1227312022
 Transform:
   m_ObjectHideFlags: 0
