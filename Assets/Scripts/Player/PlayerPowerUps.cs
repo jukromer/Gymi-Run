@@ -8,25 +8,31 @@ public class PlayerPowerUps : MonoBehaviour
     [SerializeField] PlayerHealth playerHealth;
     [SerializeField] bool PowerUpsActive;
     [SerializeField] PlayerController playerController;
+    [SerializeField] GameObject HealAvailable;
     void Start()
     {
         togglePowerUps(false);
         toggleProtBubble(false);
+        toggleHealAvailable(false);
     }
 
     void Update()
     {
-        if(PowerUpsActive && Input.GetKeyDown(KeyCode.B))
+        if(PowerUpsActive)
         {
-            toggleProtBubble(true);
-            togglePowerUps(false);
-            playerController.setPlayerCoinCount(playerController.getPlayerCoinCount() - 10);
-        }
-        if(PowerUpsActive && Input.GetKeyDown(KeyCode.H))
-        {
-            addHealth();
-            togglePowerUps(false);
-            playerController.setPlayerCoinCount(playerController.getPlayerCoinCount() - 10);
+            toggleHealAvailable(true);
+            if(Input.GetKeyDown(KeyCode.B))
+            {
+                toggleProtBubble(true);
+                togglePowerUps(false);
+                playerController.setPlayerCoinCount(playerController.getPlayerCoinCount() - 10);
+            }
+            if(Input.GetKeyDown(KeyCode.H))
+            {
+                addHealth();
+                togglePowerUps(false);
+                playerController.setPlayerCoinCount(playerController.getPlayerCoinCount() - 10);
+            }
         }
     }
 
@@ -39,6 +45,7 @@ public class PlayerPowerUps : MonoBehaviour
     {
         if (state == true)
         {
+            toggleHealAvailable(false);
             prot_bubble.SetActive(true);
             Invoke("deactivateShield", 10f);
         }
@@ -51,10 +58,16 @@ public class PlayerPowerUps : MonoBehaviour
     private void addHealth()
     {
         playerHealth.Heal(1);
+        toggleHealAvailable(false);
     }
 
     private void deactivateShield()
     {
         prot_bubble.SetActive(false);
+    }
+
+    public void toggleHealAvailable(bool state)
+    {
+        HealAvailable.SetActive(state);
     }
 }

@@ -35,6 +35,7 @@ public class DeathScreenController : MonoBehaviour
 
     public void Respawn()
     {
+        playerPowerUps.toggleHealAvailable(false);
         stopwatch.ResetTime();
         playerHealth.Heal(4);
         Time.timeScale = 1f;

@@ -18,6 +18,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] Animator heartAnimator;
     [SerializeField] StopWatch stopwatch;
     [SerializeField] TMP_Text RunTime;
+    [SerializeField] PlayerPowerUps powerUps;
     
     
     void Start()
@@ -45,6 +46,7 @@ public class PlayerHealth : MonoBehaviour
                 Boss = GameObject.FindGameObjectsWithTag("Boss");
                 stopwatch.PauseTime();
                 RunTime.text = "Time: " + stopwatch.getTime().ToString();
+                powerUps.toggleHealAvailable(false);
                 if (Boss.Length > 0)
                 {
                     Destroy(Boss[0]);

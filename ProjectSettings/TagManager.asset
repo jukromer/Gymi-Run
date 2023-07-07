@@ -15,6 +15,9 @@ TagManager:
   - Heart
   - Enemy
   - nextPlatform
+  - Inside1
+  - Inside2
+  - Inside3
   layers:
   - Default
   - TransparentFX
@@ -49,6 +52,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Sky
+    uniqueID: 3935083165
+    locked: 0
+  - name: Trees
+    uniqueID: 2302405215
+    locked: 0
+  - name: Inside
+    uniqueID: 2486156273
+    locked: 0
   - name: Background
     uniqueID: 4134397477
     locked: 0
