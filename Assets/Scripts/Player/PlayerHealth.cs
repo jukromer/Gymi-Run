@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 
 public class PlayerHealth : MonoBehaviour
@@ -14,7 +15,9 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] GameObject[] Hearts;
     [SerializeField] GameObject DamageVignette;
     private GameObject [] Boss;
-    [SerializeField] Animator heartAnimator; 
+    [SerializeField] Animator heartAnimator;
+    [SerializeField] StopWatch stopwatch;
+    [SerializeField] TMP_Text RunTime;
     
     
     void Start()
@@ -40,6 +43,8 @@ public class PlayerHealth : MonoBehaviour
                 currentHealth = 0;
                 Time.timeScale = 0f;
                 Boss = GameObject.FindGameObjectsWithTag("Boss");
+                stopwatch.PauseTime();
+                RunTime.text = "Time: " + stopwatch.getTime().ToString();
                 if (Boss.Length > 0)
                 {
                     Destroy(Boss[0]);

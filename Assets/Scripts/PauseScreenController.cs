@@ -12,6 +12,7 @@ public class PauseScreenController : MonoBehaviour
     public Vector2 RespawnPos;
     public Transform playerSpawn;
     public bool PauseScreenOn;
+    [SerializeField] StopWatch stopwatch;
     
     void Start()
     {
@@ -26,6 +27,7 @@ public class PauseScreenController : MonoBehaviour
             RespawnPos = playerSpawn.position;
             Time.timeScale = 0f;
             togglePauseScreen(true);
+            stopwatch.PauseTime();
         }      
     }
 
@@ -39,6 +41,7 @@ public class PauseScreenController : MonoBehaviour
         playerSpawn.position = RespawnPos;
         togglePauseScreen(false);
         Time.timeScale = 1f;
+        stopwatch.StartTime();
     }
 
     public void togglePauseScreen(bool state)

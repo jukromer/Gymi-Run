@@ -16,10 +16,10 @@ public class DeathScreenController : MonoBehaviour
     [SerializeField] PlayerController playerController;
     [SerializeField] PlayerHealth playerHealth;
     [SerializeField] PlayerPowerUps playerPowerUps;
+    [SerializeField] StopWatch stopwatch;
 
     void Start()
     {
-        //playerMovement.body.constraints = RigidbodyConstraints2D.None;
         toggleDeathScreen(false);
     }
 
@@ -35,6 +35,7 @@ public class DeathScreenController : MonoBehaviour
 
     public void Respawn()
     {
+        stopwatch.ResetTime();
         playerHealth.Heal(4);
         Time.timeScale = 1f;
         print("Respawn");
