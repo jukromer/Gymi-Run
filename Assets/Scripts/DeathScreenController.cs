@@ -43,6 +43,7 @@ public class DeathScreenController : MonoBehaviour
         playerController.resetCoins();
         playerPowerUps.toggleProtBubble(false);
         playerPowerUps.togglePowerUps(false);
+        bossTrigger.togglePlatforms(false);
     }
 
     public void toggleDeathScreen(bool state)
