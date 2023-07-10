@@ -5,6 +5,7 @@ using UnityEngine;
 public class ScoreSaver
 {
     [SerializeField] static float Score;
+    [SerializeField] static float HighScore;
 
 
     public ScoreSaver(float newScore)
@@ -23,16 +24,27 @@ public class ScoreSaver
         
     }
 
-    public void addScore(float newScore)
+    public static void addScore(float newScore)
     {
-        if(Score < newScore)
+        if(newScore > PlayerPrefs.GetFloat("HighScore"))
+        {
+            Score = newScore;
+            PlayerPrefs.SetFloat("Highscore", newScore);
+            PlayerPrefs.Save();
+        }
+        else
         {
             Score = newScore;
         }
     }
 
-    public float getScore()
+    public static float getScore()
     {
         return Score;
+    }
+
+    public static float getHighScore()
+    {
+        return PlayerPrefs.GetFloat("Highscore");
     }
 }
