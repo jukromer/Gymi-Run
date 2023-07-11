@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
 
     public void SaveScore(float newScore)
     {
-        if(newScore < getHighScore())
+        if(newScore < getHighScore() || getHighScore() == 0)
         {
             HighScore = newScore;
             Score = newScore;
