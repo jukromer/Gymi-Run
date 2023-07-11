@@ -9,7 +9,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] int CoinCount = 0;
     [SerializeField] Text amountCoins;
     [SerializeField] PlayerPowerUps playerPowerUps;
-    [SerializeField] CoinGenerator coinGenerator; 
+    [SerializeField] CoinGenerator coinGenerator;
+    [SerializeField] float HighScore;
+    [SerializeField] float Score; 
 
     void Start()
     {
@@ -55,5 +57,35 @@ public class PlayerController : MonoBehaviour
     {
         CoinCount = amount;
         amountCoins.text = CoinCount.ToString();
+    }
+
+    public void SaveScore(float newScore)
+    {
+        if(newScore < getHighScore())
+        {
+            HighScore = newScore;
+            Score = newScore;
+            PlayerPrefs.SetFloat("Highscore", HighScore);
+            PlayerPrefs.Save();
+        }
+        else
+        {
+            Score = newScore;
+        }
+    }
+
+    public float getHighScore()
+    {
+        return PlayerPrefs.GetFloat("Highscore");
+    }
+
+    public float getScore()
+    {
+        return Score;
+    }
+
+    public void DeleteScore()
+    {
+        PlayerPrefs.DeleteKey("Highscore");
     }
 }

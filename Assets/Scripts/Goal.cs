@@ -7,10 +7,10 @@ using System.Threading;
 public class Goal : MonoBehaviour
 {
     [SerializeField] StopWatch stopwatch;
-    [SerializeField] ScoreSaver scoreSaver;
     [SerializeField] GameObject WinScreen;
     [SerializeField] TMP_Text HighScore;
     [SerializeField] TMP_Text Score;
+    [SerializeField] PlayerController playerController;
 
 
     void Start()
@@ -29,11 +29,11 @@ public class Goal : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             stopwatch.PauseTime();
-            ScoreSaver.addScore(stopwatch.getTime());
+            playerController.SaveScore(stopwatch.getTime());
             Time.timeScale = 0f;
             WinScreen.SetActive(true);
-            HighScore.text = "Bestzeit: " + ScoreSaver.getHighScore().ToString();
-            Score.text = "Zeit: " + ScoreSaver.getScore().ToString();
+            HighScore.text = "Bestzeit: " + playerController.getHighScore().ToString();
+            Score.text = "Zeit: " + playerController.getScore().ToString();
         }
     }
 }

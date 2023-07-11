@@ -1211,6 +1211,7 @@ MonoBehaviour:
   WinScreen: {fileID: 274738087}
   HighScore: {fileID: 1917685648}
   Score: {fileID: 97211898}
+  playerController: {fileID: 338426814}
 --- !u!61 &165069661
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2749,6 +2750,8 @@ MonoBehaviour:
   amountCoins: {fileID: 477704294}
   playerPowerUps: {fileID: 338426815}
   coinGenerator: {fileID: 1227312021}
+  HighScore: 0
+  Score: 0
 --- !u!114 &338426815
 MonoBehaviour:
   m_ObjectHideFlags: 0
