@@ -64,14 +64,21 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {   
             if(isGrounded && jumpCount == 0)
-            {   isGrounded = false;           
+            {   
+                isGrounded = false;           
                 jumpCount++;
                 Jump();  
+            }
+            else if(!isGrounded && jumpCount == 0)
+            {
+                jumpCount = 2;
+                Jump();   
             }
             else if(jumpCount == 1)
             {   
                 DoubleJump();
             }
+            
         }
 
         if(Input.GetKeyDown(KeyCode.LeftShift))
@@ -113,7 +120,7 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("IsJumping", false);
         body.velocity = new Vector2(body.velocity.x, jumpHeight);
         airspeed = 0.8F;
-        jumpCount = 0;
+        jumpCount = 2;
     }
 
     private void Stomp()

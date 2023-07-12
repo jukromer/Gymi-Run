@@ -11,6 +11,7 @@ public class Goal : MonoBehaviour
     [SerializeField] TMP_Text HighScore;
     [SerializeField] TMP_Text Score;
     [SerializeField] PlayerController playerController;
+    [SerializeField] BossTrigger bossTrigger;
 
 
     void Start()
@@ -28,6 +29,8 @@ public class Goal : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            bossTrigger.setBossSpawnState(false);
+            bossTrigger.DestroyBoss();
             stopwatch.PauseTime();
             playerController.SaveScore(stopwatch.getTime());
             Time.timeScale = 0f;

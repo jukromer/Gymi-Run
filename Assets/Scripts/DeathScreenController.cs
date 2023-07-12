@@ -46,6 +46,8 @@ public class DeathScreenController : MonoBehaviour
         playerPowerUps.toggleProtBubble(false);
         playerPowerUps.togglePowerUps(false);
         bossTrigger.togglePlatforms(false);
+        bossTrigger.DestroyBoss();
+        bossTrigger.setBossSpawnState(false);
     }
 
     public void toggleDeathScreen(bool state)

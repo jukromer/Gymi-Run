@@ -14,6 +14,7 @@ public class BossTrigger : MonoBehaviour
         nextPlatforms = GameObject.FindGameObjectsWithTag("nextPlatform");
         togglePlatforms(false);
         setBossSpawnState(false);
+        DestroyBoss();
     }
 
     void Update()
@@ -23,7 +24,7 @@ public class BossTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider) 
     {
-        if (collider.gameObject.CompareTag("Player"))
+        if (collider.gameObject.CompareTag("Player") && getBossSpawnState() == false)
         {
             togglePlatforms(true);
             Vector2 SpawnPos = new Vector2(playerTransform.position.x, playerTransform.position.y + 10);
@@ -70,6 +71,18 @@ public class BossTrigger : MonoBehaviour
                 SetSpriteAlpha(nextPlatforms[i].GetComponent<SpriteRenderer>(), 0.5f); 
             }  
         } 
+    }
+
+    public void DestroyBoss()
+    {
+        if (getBossSpawnState())
+        {
+            GameObject [] Boss = GameObject.FindGameObjectsWithTag("Boss");
+            for(int i = 0; i < Boss.Length; i++)
+            {
+                Destroy(Boss[i]);
+            }
+        }
     }
 
 }
