@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
     {
         body = GetComponent<Rigidbody2D>();
         body.gravityScale = gravityScale;
-        body.drag = 1;
+        body.drag = 0;
         body.angularDrag = 0;
         boxCollider = GetComponent<BoxCollider2D>();
         animator.updateMode = AnimatorUpdateMode.UnscaledTime;

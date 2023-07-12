@@ -1212,6 +1212,7 @@ MonoBehaviour:
   HighScore: {fileID: 1917685648}
   Score: {fileID: 97211898}
   playerController: {fileID: 338426814}
+  bossTrigger: {fileID: 0}
 --- !u!61 &165069661
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2733,7 +2734,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetName: 
   parentObject: {fileID: 338426811}
-  DevMode: 1
+  DevMode: 0
   DevModeMessage: {fileID: 1106919488}
   playerController: {fileID: 338426814}
 --- !u!114 &338426814
