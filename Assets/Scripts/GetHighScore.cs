@@ -8,11 +8,6 @@ public class GetHighScore : MonoBehaviour
     [SerializeField] TMP_Text HighScore;
     void Start()
     {
-        HighScore.text = "Highscore " + PlayerPrefs.GetFloat("Highscore").ToString();
-    }
-
-    void Update()
-    {
-        
+        HighScore.text = "Bestzeit " + PlayerPrefs.GetFloat("Highscore").ToString();
     }
 }
