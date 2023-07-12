@@ -1212,7 +1212,7 @@ MonoBehaviour:
   HighScore: {fileID: 1917685648}
   Score: {fileID: 97211898}
   playerController: {fileID: 338426814}
-  bossTrigger: {fileID: 0}
+  bossTrigger: {fileID: 77045785}
 --- !u!61 &165069661
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2734,7 +2734,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetName: 
   parentObject: {fileID: 338426811}
-  DevMode: 0
+  DevMode: 1
   DevModeMessage: {fileID: 1106919488}
   playerController: {fileID: 338426814}
 --- !u!114 &338426814
@@ -2820,7 +2820,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0033174753, y: 0.0002503395}
+  m_Offset: {x: 0.0020170212, y: 0.00935179}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2831,7 +2831,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.1262386, y: 1.2451687}
+  m_Size: {x: 2.1704464, y: 1.2633716}
   m_EdgeRadius: 0
 --- !u!212 &361695411
 SpriteRenderer:
