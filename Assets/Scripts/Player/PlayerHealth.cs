@@ -24,7 +24,7 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         DamageVignette.SetActive(false);
-        Hearts = GameObject.FindGameObjectsWithTag("Heart");
+        //Hearts = GameObject.FindGameObjectsWithTag("Heart");
         Time.timeScale = 1f;
         currentHealth = maxHealth; 
         heartAnimator.SetBool("IsBeating", false);       

@@ -9,17 +9,20 @@ public class PlayerPowerUps : MonoBehaviour
     [SerializeField] bool PowerUpsActive;
     [SerializeField] PlayerController playerController;
     [SerializeField] GameObject HealAvailable;
+    [SerializeField] GameObject ShieldAvailable;
     void Start()
     {
         togglePowerUps(false);
         toggleProtBubble(false);
         toggleHealAvailable(false);
+        toggleShieldAvailable(false);
     }
 
     void Update()
     {
         if(PowerUpsActive)
         {
+            toggleShieldAvailable(true);
             toggleHealAvailable(true);
             if(Input.GetKeyDown(KeyCode.B))
             {
@@ -45,6 +48,7 @@ public class PlayerPowerUps : MonoBehaviour
     {
         if (state == true)
         {
+            toggleShieldAvailable(false);
             toggleHealAvailable(false);
             prot_bubble.SetActive(true);
             Invoke("deactivateShield", 10f);
@@ -59,6 +63,7 @@ public class PlayerPowerUps : MonoBehaviour
     {
         playerHealth.Heal(1);
         toggleHealAvailable(false);
+        toggleShieldAvailable(false);
     }
 
     private void deactivateShield()
@@ -69,5 +74,10 @@ public class PlayerPowerUps : MonoBehaviour
     public void toggleHealAvailable(bool state)
     {
         HealAvailable.SetActive(state);
+    }
+
+    public void toggleShieldAvailable(bool state)
+    {
+        ShieldAvailable.SetActive(state);
     }
 }
