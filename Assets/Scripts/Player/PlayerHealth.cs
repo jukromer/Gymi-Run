@@ -19,7 +19,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] StopWatch stopwatch;
     [SerializeField] TMP_Text RunTime;
     [SerializeField] PlayerPowerUps powerUps;
-    
+    [SerializeField] private AudioSource damageSound;
     
     void Start()
     {
@@ -39,8 +39,10 @@ public class PlayerHealth : MonoBehaviour
     {
         if (amount > 0)
         {
+            damageSound.Play();
             if(currentHealth - amount <= 0)
             {
+                
                 currentHealth = 0;
                 Time.timeScale = 0f;
                 Boss = GameObject.FindGameObjectsWithTag("Boss");

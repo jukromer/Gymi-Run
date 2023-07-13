@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float TopSpeed;
     [SerializeField] float lowSpeed;
     
-    
+    [SerializeField] private AudioSource jumpSoundEffect;
 
     private void Awake()
     {
@@ -107,6 +107,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {  
+        jumpSoundEffect.Play();
         animator.SetBool("IsJumping", true);
         body.velocity = new Vector2(body.velocity.x, jumpHeight);
         airspeed = 1.2F;        
@@ -114,6 +115,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void DoubleJump()
     {
+        jumpSoundEffect.Play();
         animator.SetBool("IsDoubleJumping", true);
         animator.SetBool("IsJumping", false);
         body.velocity = new Vector2(body.velocity.x, jumpHeight);
