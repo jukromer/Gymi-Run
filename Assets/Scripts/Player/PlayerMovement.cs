@@ -24,6 +24,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] PlayerHealth playerHealth;
     bool isStomping;
     private string currentState;
+    [SerializeField] float StompSpeed;
+    [SerializeField] Vector2 playerVelocity;
+    [SerializeField] float TopSpeed;
+    [SerializeField] float lowSpeed;
     
     
 
@@ -39,14 +43,8 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void Update()
-    {
-
-
-        if(PlayerManager.CharacterAnimator != null)
-        {
-            animator  = PlayerManager.CharacterAnimator;
-        }
-        
+    {        
+        SpeedDisplay();
         float horizontalInput = Input.GetAxis("Horizontal");
         body.velocity = new Vector2(horizontalInput * (speed * airspeed), body.velocity.y);
         animator.SetFloat("Speed", Mathf.Abs(horizontalInput));
@@ -104,7 +102,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             body.gravityScale = gravityScale;
-        }   
+        }  
     }
 
     private void Jump()
@@ -125,15 +123,16 @@ public class PlayerMovement : MonoBehaviour
 
     private void Stomp()
     {
-        isStomping = true;
-        animator.SetBool("IsStomping", true);
-        fallGravityScale = 40f;
-        animator.SetBool("IsJumping", false);
-        animator.SetBool("IsDoubleJumping", false);
+        fallGravityScale = 0f;
         if(body.velocity.y > 0)
         {
             body.velocity = new Vector2(body.velocity.x , body.velocity.y * -1f);
         }
+        isStomping = true;
+        animator.SetBool("IsStomping", true);
+        body.velocity = new Vector2(body.velocity.x, StompSpeed);
+        animator.SetBool("IsJumping", false);
+        animator.SetBool("IsDoubleJumping", false);
     }
     
     private void OnCollisionEnter2D(Collision2D collision) 
@@ -161,6 +160,46 @@ public class PlayerMovement : MonoBehaviour
         // if(currentState == newState) return;
         cameraAnimator.Play(newState, -1, 0f);
         currentState = newState;
+    }
+
+    private void SpeedDisplay()
+    {
+        playerVelocity = new Vector2(body.velocity.x, body.velocity.y);
+        if(body.velocity.y > TopSpeed)
+        {
+            TopSpeed = body.velocity.y;
+        }
+        if(body.velocity.y < lowSpeed)
+        {
+            lowSpeed = body.velocity.y;
+        }
+        if(PlayerManager.CharacterAnimator != null)
+        {
+            animator  = PlayerManager.CharacterAnimator;
+        }
+    }
+
+    public void ResetPlayerVelocity()
+    {
+        body.velocity = new Vector2(0f, 0f);
+    }
+
+    public void ResetGravity()
+    {
+        gravityScale = 3f;
+        fallGravityScale = 5f; 
+    }
+
+    public void toggleIsStomping(bool state)
+    {
+        isStomping = state;
+    }
+
+    public void ResetPlayerMovement()
+    {
+        ResetGravity();
+        ResetPlayerVelocity();
+        toggleIsStomping(false);
     }
    
 }
