@@ -203,5 +203,15 @@ public class PlayerMovement : MonoBehaviour
         ResetPlayerVelocity();
         toggleIsStomping(false);
     }
+
+    public bool IsGrounded()
+    {
+        return isGrounded;
+    }
+
+    public int getJumpCount()
+    {
+        return jumpCount;
+    }
    
 }

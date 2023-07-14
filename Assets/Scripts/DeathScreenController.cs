@@ -17,6 +17,7 @@ public class DeathScreenController : MonoBehaviour
     [SerializeField] PlayerHealth playerHealth;
     [SerializeField] PlayerPowerUps playerPowerUps;
     [SerializeField] StopWatch stopwatch;
+    
 
     void Start()
     {
