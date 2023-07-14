@@ -42,10 +42,13 @@ public class PlayerController : MonoBehaviour
 
     public void resetCoins()
     {
-        coinGenerator.deleteCoins();
-        coinGenerator.spawnCoins();
-        CoinCount = 0;
-        amountCoins.text = CoinCount.ToString();
+        if (coinGenerator != null)
+        {
+            coinGenerator.deleteCoins();
+            coinGenerator.spawnCoins();
+            CoinCount = 0;
+            amountCoins.text = CoinCount.ToString();
+        }
     }
 
     public int getPlayerCoinCount()

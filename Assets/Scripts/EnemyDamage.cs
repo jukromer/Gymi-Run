@@ -8,6 +8,7 @@ public class EnemyDamage : MonoBehaviour
     public PlayerHealth playerHealth;
     private GameObject [] player;
     [SerializeField] int defaultDamage;
+    [SerializeField] bool EffectByChance;
     
     void Start()
     {
@@ -29,7 +30,21 @@ public class EnemyDamage : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            playerHealth.Damage(Damage);
+            if (EffectByChance)
+            {
+                if (Effect())
+                {
+                    playerHealth.Heal(1);
+                }
+                else
+                {
+                    playerHealth.Damage(Damage);
+                }
+            }
+            else
+            {
+               playerHealth.Damage(Damage); 
+            }
         }    
     }
 
@@ -41,5 +56,25 @@ public class EnemyDamage : MonoBehaviour
     public void setDeafaultEnemyDamage()
     {
         Damage = defaultDamage;
+    }
+
+    private bool Effect()
+    {
+        int randomNumber = RandomNumber();
+        print(randomNumber);
+        if(randomNumber > 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    private int RandomNumber()
+    {
+        int randomValue = (int) Random.Range(-3 ,2);
+        return randomValue;
     }
 }
