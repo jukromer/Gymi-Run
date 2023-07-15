@@ -107,7 +107,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {  
+        fallGravityScale = 5f;
         jumpSoundEffect.Play();
+        animator.SetBool("IsStomping", false);
         animator.SetBool("IsJumping", true);
         body.velocity = new Vector2(body.velocity.x, jumpHeight);
         airspeed = 1.2F;        
@@ -115,7 +117,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void DoubleJump()
     {
+        fallGravityScale = 5f;
         jumpSoundEffect.Play();
+        animator.SetBool("IsStomping", false);
         animator.SetBool("IsDoubleJumping", true);
         animator.SetBool("IsJumping", false);
         body.velocity = new Vector2(body.velocity.x, jumpHeight);
@@ -126,10 +130,6 @@ public class PlayerMovement : MonoBehaviour
     private void Stomp()
     {
         fallGravityScale = 0f;
-        if(body.velocity.y > 0)
-        {
-            body.velocity = new Vector2(body.velocity.x , body.velocity.y * -1f);
-        }
         isStomping = true;
         animator.SetBool("IsStomping", true);
         body.velocity = new Vector2(body.velocity.x, StompSpeed);

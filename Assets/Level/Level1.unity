@@ -2742,7 +2742,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetName: 
   parentObject: {fileID: 338426811}
-  DevMode: 0
+  DevMode: 1
   DevModeMessage: {fileID: 1106919488}
   playerController: {fileID: 338426814}
 --- !u!114 &338426814
@@ -7820,6 +7820,7 @@ MonoBehaviour:
   Damage: 1
   playerHealth: {fileID: 338426808}
   defaultDamage: 1
+  EffectByChance: 0
 --- !u!212 &1508820650
 SpriteRenderer:
   m_ObjectHideFlags: 0
