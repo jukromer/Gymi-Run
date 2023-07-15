@@ -16,12 +16,20 @@ public class TutorialSequences : MonoBehaviour
 
 
 
-
+    //Sequences
     private bool IsSequence1 = false;
     private bool IsSequence2 = false;
     private bool IsSequence3 = false;
     private bool IsSequence4 = false;
     private bool IsSequence5 = false;
+
+    //Achievements
+    bool walkedLeft = false;
+    bool walkedRight = false;
+    bool jumped = false;
+    bool doubleJumped = false;
+    bool stomped = false;
+    bool airJumped = false;
     
     
     
@@ -44,27 +52,10 @@ public class TutorialSequences : MonoBehaviour
             tutorialInstructions.printWarningMessage(tutorialInstructions.ImmortalMessage);
             deathScreenController.Respawn();
             StartCoroutine(ResetText());
+
         }
-    }
 
-    public void Sequence1()
-    {
-        bool walkedLeft = false;
-        bool walkedRight = false;
-        bool jumped = false;
-        bool doubleJumped = false;
-        bool stomped = false;
-        bool airJumped = false;
-
-        IsSequence1 = true;
-
-        tutorialInstructions.printMessage(tutorialInstructions.WalkMessage);
-        // tutorialInstructions.printMessage(tutorialInstructions.JumpMessage);
-        // tutorialInstructions.printMessage(tutorialInstructions.DoubleJumpMessage);
-        // tutorialInstructions.printMessage(tutorialInstructions.AirjumpMessage);
-        // tutorialInstructions.printMessage(tutorialInstructions.StompMessage);
-
-        while(IsSequence1)
+        if(IsSequence1)
         {
             if(Input.GetKeyDown(KeyCode.Space))
             {
@@ -96,6 +87,13 @@ public class TutorialSequences : MonoBehaviour
                 Sequence2();
             }
         }
+    }
+
+    public void Sequence1()
+    {
+        IsSequence1 = true;
+
+        tutorialInstructions.printSequence1();
     }
 
     public void Sequence2()

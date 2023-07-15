@@ -5,34 +5,21 @@ using TMPro;
 
 public class TutorialInstructions : MonoBehaviour
 {
+    //Messages
     public string ImmortalMessage;
-    public string WalkMessage;
+    public string WalkMessage = "Laufe mit A/D nach links/rechts";
     public string JumpMessage;
     public string DoubleJumpMessage;
     public string AirjumpMessage;
     public string StompMessage;
 
-
-
-
-    private string Jump;
-    private string walkRight;
-    private string walkLeft;
-    private string doubleJump;
-    private string airJump;
-    private string stomp;
-
-
     [SerializeField] TMP_Text Warnings;
-    [SerializeField] TMP_Text [] Instructions = new TMP_Text [20];
-    [SerializeField] TMP_Text Instruction;
-    [SerializeField] int InstructionCount;
-    private RectTransform previousInstruction;
+    [SerializeField] TMP_Text [] Instructions;
 
 
     void Start()
     {
-        ResetText();
+        // ResetText();
         setImmortalMessage();
         setWalkMessage();
     }
@@ -49,30 +36,20 @@ public class TutorialInstructions : MonoBehaviour
 
     public void setWalkMessage()
     {
-        WalkMessage = "Laufe mit A/D nach links/rechts";
+        // WalkMessage = "Laufe mit A/D nach links/rechts";
     }
 
-    public void printMessage(string Message)
+    public string getWalkMessage()
     {
-        if(InstructionCount == 0)
-        {
-            print("Test1" + InstructionCount);
-            Instructions[InstructionCount] = Instantiate(Instruction, new Vector2(152f, -31), Quaternion.identity);
-            Instructions[InstructionCount].text = Message;
-            previousInstruction = Instructions[InstructionCount].GetComponent<RectTransform>();
-            InstructionCount++;
-        }
-        else
-        {
-            print("Test2" + InstructionCount);
-            Instructions[InstructionCount] = Instantiate(Instruction, new Vector2(previousInstruction.anchoredPosition.x, previousInstruction.anchoredPosition.y - 10f), Quaternion.identity);
-            Instructions[InstructionCount].text = Message;
-            previousInstruction = Instructions[InstructionCount].GetComponent<RectTransform>();
-            InstructionCount++;
-        }        
+        return WalkMessage;
     }
 
-
+    public void printMessage(string Message, int Index)
+    {
+        print(Message + Index);
+        Instructions[Index].text = Message;
+        print(Instructions[Index].text);
+    }
 
     public void ResetText()
     {
@@ -86,6 +63,13 @@ public class TutorialInstructions : MonoBehaviour
         Warnings.text = "";
     }
 
-
-
+    public void printSequence1()
+    {
+        printMessage("Laufe mit A/D nach links/rechts", 0);
+        printMessage(JumpMessage, 1);
+        printMessage(DoubleJumpMessage, 2);
+        printMessage(AirjumpMessage, 3);
+        printMessage(StompMessage, 4);
+    }
 }
+
