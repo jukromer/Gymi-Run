@@ -15,6 +15,8 @@ public class TutorialSequences : MonoBehaviour
     [SerializeField] PlayerMovement playerMovement;
     [SerializeField] GameObject ArrowDown;
     [SerializeField] GameObject AbfrageInfo;
+    [SerializeField] PlayerController playerController;
+    [SerializeField] GameObject Coin;
 
 
 
@@ -33,12 +35,14 @@ public class TutorialSequences : MonoBehaviour
     bool doubleJumped = false;
     bool stomped = false;
     bool airJumped = false;
+    bool printed = false;
     
     
     
 
     void Start()
     {
+        Deactivate(Coin);
         int childCount = UI.transform.childCount;
         UIObjects = new GameObject[childCount];
         for(int a = 0; a < UIObjects.Length; a++)
@@ -63,7 +67,7 @@ public class TutorialSequences : MonoBehaviour
                 tutorialInstructions.printWarningMessage(tutorialInstructions.ImmortalMessage);
             }
             deathScreenController.Respawn();
-            StartCoroutine(ResetText());
+            StartCoroutine(tutorialInstructions.ResetWarning());
 
         }
 
@@ -110,6 +114,21 @@ public class TutorialSequences : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.P))
             {
                 tutorialInstructions.checkInstruction(2);
+                IsSequence2 = false;
+                Sequence3();
+            }
+        }
+        if(IsSequence3)
+        {
+            if(playerController.getPlayerCoinCount() == 10 && !printed)
+            {
+                printed = true;
+                tutorialInstructions.printSequence3();
+            }
+            if(Input.GetKeyDown(KeyCode.H) || Input.GetKeyDown(KeyCode.B))
+            {
+                IsSequence3 = false;
+                Sequence4();
             }
         }
     }
@@ -125,7 +144,7 @@ public class TutorialSequences : MonoBehaviour
 
     public void Sequence2()
     {
-        for(int a = 3; a < 6; a++)
+        for(int a = 1; a < 4; a++)
         {
             UIObjects[a].SetActive(true);
         }
@@ -133,7 +152,7 @@ public class TutorialSequences : MonoBehaviour
         toggleAbfrageInfo(true);
         toggleArrowDown(true);
         tutorialInstructions.printWarningMessage("Du kannst Schaden bekommen");
-        tutorialInstructions.ResetWarning();
+        StartCoroutine(tutorialInstructions.ResetWarning());
         tutorialInstructions.printSequence2();
         for(int i = 0; i < 9; i++)
         {
@@ -143,7 +162,16 @@ public class TutorialSequences : MonoBehaviour
 
     public void Sequence3()
     {
-        
+        IsSequence3 = true;
+        ArrowDown.transform.position = new Vector2(39f, 2.9f);
+        toggleAbfrageInfo(false);
+        playerController.setPlayerCoinCount(9);
+        for(int i = 0; i < 7; i++)
+        {
+            UIObjects[i].SetActive(true);
+        }
+        Activate(Coin);
+        activateTables(tables[9]);
     }
 
     public void Sequence4()
@@ -159,7 +187,7 @@ public class TutorialSequences : MonoBehaviour
     private IEnumerator ResetText()
     {
         yield return new WaitForSeconds(2f);
-        tutorialInstructions.ResetText();
+        tutorialInstructions.ResetAllText();
     }
 
     private void deactivateTables(GameObject table)

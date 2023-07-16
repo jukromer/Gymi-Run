@@ -52,7 +52,7 @@ public class TutorialInstructions : MonoBehaviour
         print(Instructions[Index].text);
     }
 
-    public void ResetText()
+    public void ResetAllText()
     {
         for (int i = 0; i < Instructions.Length; i++)
         {
@@ -81,12 +81,38 @@ public class TutorialInstructions : MonoBehaviour
 
     public void printSequence2()
     {
+        for(int i = 0; i < Instructions.Length; i++)
+        {
+            Instructions[i].gameObject.SetActive(true);
+            ResetText(i);
+        }
         printMessage("Drücke P", 2);
+    }
+
+    public void printSequence3()
+    {
+        for(int i = 0; i < Instructions.Length; i++)
+        {
+            Instructions[i].gameObject.SetActive(true);
+            ResetText(i);
+        }
+        printMessage("Du hast 10 Bücher, wähle eines der PowerUps", 0);
+        printMessage("Drücke H um ein Herz zurückzubekommen", 1);
+        printMessage("Drücke B um für 10s von einer Schutzblase umgeben zu sein", 2);
+        for(int a = 0; a < 3; a++)
+        {
+            Instructions[a].gameObject.transform.position = new Vector2(1150f, Instructions[a].gameObject.transform.position.y);
+        }
     }
 
     public void checkInstruction(int Index)
     {
         Instructions[Index].gameObject.SetActive(false);
+    }
+
+    public void ResetText(int Index)
+    {
+        Instructions[Index].text = "";
     }
 }
 

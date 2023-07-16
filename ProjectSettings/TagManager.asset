@@ -18,6 +18,7 @@ TagManager:
   - Inside1
   - Inside2
   - Inside3
+  - Button
   layers:
   - Default
   - TransparentFX
