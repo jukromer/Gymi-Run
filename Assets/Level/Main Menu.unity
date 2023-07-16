@@ -198,7 +198,7 @@ MonoBehaviour:
   m_text: Bestzeit
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: be6e25648ad560a4a962206b40492cbf, type: 2}
-  m_sharedMaterial: {fileID: -6809117066016599616, guid: be6e25648ad560a4a962206b40492cbf, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: b1cdc992425866b45896ffd824195eb0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -585,7 +585,7 @@ MonoBehaviour:
   m_text: Quit
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: be6e25648ad560a4a962206b40492cbf, type: 2}
-  m_sharedMaterial: {fileID: -6809117066016599616, guid: be6e25648ad560a4a962206b40492cbf, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: b1cdc992425866b45896ffd824195eb0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -935,7 +935,7 @@ MonoBehaviour:
   m_text: GYK-Run
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: be6e25648ad560a4a962206b40492cbf, type: 2}
-  m_sharedMaterial: {fileID: -6809117066016599616, guid: be6e25648ad560a4a962206b40492cbf, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: b1cdc992425866b45896ffd824195eb0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1146,7 +1146,7 @@ MonoBehaviour:
   m_text: Play
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: be6e25648ad560a4a962206b40492cbf, type: 2}
-  m_sharedMaterial: {fileID: -6809117066016599616, guid: be6e25648ad560a4a962206b40492cbf, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: b1cdc992425866b45896ffd824195eb0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

@@ -7,18 +7,19 @@ public class TutorialInstructions : MonoBehaviour
 {
     //Messages
     public string ImmortalMessage;
-    public string WalkMessage = "Laufe mit A/D nach links/rechts";
+    public string WalkMessage;
     public string JumpMessage;
     public string DoubleJumpMessage;
     public string AirjumpMessage;
     public string StompMessage;
 
     [SerializeField] TMP_Text Warnings;
-    [SerializeField] TMP_Text [] Instructions;
+    public TMP_Text [] Instructions;
 
 
     void Start()
     {
+        WalkMessage = "Laufe mit A/D nach links/rechts";
         // ResetText();
         setImmortalMessage();
         setWalkMessage();
@@ -63,13 +64,29 @@ public class TutorialInstructions : MonoBehaviour
         Warnings.text = "";
     }
 
+    public IEnumerator ResetWarning()
+    {
+        yield return new WaitForSeconds(2f);
+        Warnings.text = "";
+    }
+
     public void printSequence1()
     {
         printMessage("Laufe mit A/D nach links/rechts", 0);
-        printMessage(JumpMessage, 1);
-        printMessage(DoubleJumpMessage, 2);
-        printMessage(AirjumpMessage, 3);
-        printMessage(StompMessage, 4);
+        printMessage("Springe mit der Leertaste", 1);
+        printMessage("Führe einen DoubleJump aus", 2);
+        printMessage("Führe einen Airjump aus", 3);
+        printMessage("Nutze shift um zu stompen", 4);
+    }
+
+    public void printSequence2()
+    {
+        printMessage("Drücke P", 2);
+    }
+
+    public void checkInstruction(int Index)
+    {
+        Instructions[Index].gameObject.SetActive(false);
     }
 }
 

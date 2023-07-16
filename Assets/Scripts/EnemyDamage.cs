@@ -20,11 +20,6 @@ public class EnemyDamage : MonoBehaviour
         }
     }
 
-    
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter2D(Collider2D collision) 
     {
@@ -74,7 +69,7 @@ public class EnemyDamage : MonoBehaviour
 
     private int RandomNumber()
     {
-        int randomValue = (int) Random.Range(-3 ,2);
+        int randomValue = (int) Random.Range(-2 ,2);
         return randomValue;
     }
 }

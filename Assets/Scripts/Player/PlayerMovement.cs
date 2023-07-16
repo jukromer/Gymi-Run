@@ -33,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
+        speed = 0f;
         body = GetComponent<Rigidbody2D>();
         body.gravityScale = gravityScale;
         body.drag = 0;
@@ -139,6 +140,7 @@ public class PlayerMovement : MonoBehaviour
     
     private void OnCollisionEnter2D(Collision2D collision) 
     {
+        speed = 10f;
         fallGravityScale = 5f;
         isGrounded = true;
         jumpCount = 0;
@@ -212,6 +214,11 @@ public class PlayerMovement : MonoBehaviour
     public int getJumpCount()
     {
         return jumpCount;
+    }
+
+    public void setSpeed(float newSpeed)
+    {
+        speed = newSpeed;
     }
    
 }
