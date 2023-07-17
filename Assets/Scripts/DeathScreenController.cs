@@ -17,6 +17,7 @@ public class DeathScreenController : MonoBehaviour
     [SerializeField] PlayerHealth playerHealth;
     [SerializeField] PlayerPowerUps playerPowerUps;
     [SerializeField] StopWatch stopwatch;
+    [SerializeField] RepeatingBackground repeatingBackground;
     
 
     void Start()
@@ -36,6 +37,7 @@ public class DeathScreenController : MonoBehaviour
 
     public void Respawn()
     {
+        repeatingBackground.resetBackground();
         playerMovement.setSpeed(0f);
         playerMovement.ResetPlayerMovement();
         playerPowerUps.toggleHealAvailable(false);
