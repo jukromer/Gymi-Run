@@ -220,5 +220,10 @@ public class PlayerMovement : MonoBehaviour
     {
         speed = newSpeed;
     }
+
+    public float getPlayerXvelo()
+    {
+        return body.velocity.x;
+    }
    
 }
