@@ -6,11 +6,16 @@ public class ParallaxController : MonoBehaviour
 {
     public Transform [] trees;
     public Vector3 [] treePositions;
+
     public Transform [] skys;
     public Vector3 [] skyPositions;
 
+    public Transform [] houses;
+    public Vector3 [] housePositions;
+
     [SerializeField] float qZtrees;
     [SerializeField] float qZskys;
+    private float qZhouses;
     bool IsParallax = false;
 
     [SerializeField] PlayerMovement playerMovement;
@@ -20,11 +25,13 @@ public class ParallaxController : MonoBehaviour
 
     private void Start() 
     {
+        setHousePoitions();
         setSkyPositions();
         setTreePositions();
         cameraTransform = Camera.main.transform;
         qZtrees = 1 - Mathf.Abs(cameraTransform.position.z/trees[0].position.z);
-        qZskys = 1 - Mathf.Abs(cameraTransform.position.z/skys[0].position.z);    
+        qZskys = 1 - Mathf.Abs(cameraTransform.position.z/skys[0].position.z);
+        qZhouses =  1 - Mathf.Abs(cameraTransform.position.z/houses[0].position.z);  
     }
 
     private void Update() 
@@ -33,6 +40,7 @@ public class ParallaxController : MonoBehaviour
         {
             parallaxTrees();
             parallaxSky();
+            parallaxHouses();
         }
     }
 
@@ -52,6 +60,16 @@ public class ParallaxController : MonoBehaviour
         }
     }
 
+    private void parallaxHouses()
+    {
+        for(int i = 0; i < houses.Length; i++)
+        {
+            houses[i].position = new Vector3(housePositions[i].x + player.position.x *  qZhouses, houses[i].position.y, houses[i].position.z);
+        }
+    }
+
+
+
     private void setTreePositions()
     {
         IsParallax = true;
@@ -68,6 +86,15 @@ public class ParallaxController : MonoBehaviour
         for(int i = 0; i < skys.Length; i++)
         {
             skyPositions[i] = new Vector3(skys[i].position.x, 5.01f, 100f);
+        }
+    }
+
+    private void setHousePoitions()
+    {
+        housePositions = new Vector3[houses.Length];
+        for(int i = 0; i < houses.Length; i++)
+        {
+            housePositions[i] = new Vector3(houses[i].position.x, 2.63f, 45f);
         }
     }
 

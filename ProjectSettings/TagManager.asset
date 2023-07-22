@@ -56,6 +56,9 @@ TagManager:
   - name: Sky
     uniqueID: 3935083165
     locked: 0
+  - name: Houses
+    uniqueID: 3261648305
+    locked: 0
   - name: Trees
     uniqueID: 2302405215
     locked: 0
