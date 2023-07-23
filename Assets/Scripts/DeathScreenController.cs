@@ -37,6 +37,7 @@ public class DeathScreenController : MonoBehaviour
 
     public void Respawn()
     {
+        repeatingBackground.resetTrees();
         repeatingBackground.resetBackground();
         playerMovement.setSpeed(0f);
         playerMovement.ResetPlayerMovement();

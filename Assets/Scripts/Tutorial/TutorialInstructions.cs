@@ -99,10 +99,21 @@ public class TutorialInstructions : MonoBehaviour
         printMessage("Du hast 10 Bücher, wähle eines der PowerUps", 0);
         printMessage("Drücke H um ein Herz zurückzubekommen", 1);
         printMessage("Drücke B um für 10s von einer Schutzblase umgeben zu sein", 2);
-        for(int a = 0; a < 3; a++)
+        // for(int a = 0; a < 3; a++)
+        // {
+        //     Instructions[a].gameObject.transform.position = new Vector2(1100f, Instructions[a].gameObject.transform.position.y);
+        // }
+    }
+
+    public void printSequence4()
+    {
+        for(int i = 0; i < Instructions.Length; i++)
         {
-            Instructions[a].gameObject.transform.position = new Vector2(1150f, Instructions[a].gameObject.transform.position.y);
+            Instructions[i].gameObject.SetActive(true);
+            ResetText(i);
         }
+        printMessage("Der Boss wurde gespawnt!", 1);
+        printMessage("Du kannst ihn nur besiegen, indem du das Ende des Levels erreichst", 2);
     }
 
     public void checkInstruction(int Index)

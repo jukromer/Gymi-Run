@@ -21,11 +21,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter2D(Collider2D collider) 
     {
         if(collider.gameObject.CompareTag("Coin"))
@@ -60,6 +55,10 @@ public class PlayerController : MonoBehaviour
     {
         CoinCount = amount;
         amountCoins.text = CoinCount.ToString();
+        if(CoinCount == 10)
+        {
+            playerPowerUps.togglePowerUps(true);
+        }
     }
 
     public void SaveScore(float newScore)

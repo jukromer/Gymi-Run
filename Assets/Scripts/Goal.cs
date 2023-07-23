@@ -35,8 +35,11 @@ public class Goal : MonoBehaviour
             playerController.SaveScore(stopwatch.getTime());
             Time.timeScale = 0f;
             WinScreen.SetActive(true);
-            HighScore.text = "Bestzeit: " + playerController.getHighScore().ToString();
-            Score.text = "Zeit: " + playerController.getScore().ToString();
+            if (HighScore && Score != null)
+            {
+                HighScore.text = "Bestzeit: " + playerController.getHighScore().ToString();
+                Score.text = "Zeit: " + playerController.getScore().ToString();
+            }
         }
     }
 }

@@ -15,8 +15,11 @@ public class TutorialSequences : MonoBehaviour
     [SerializeField] PlayerMovement playerMovement;
     [SerializeField] GameObject ArrowDown;
     [SerializeField] GameObject AbfrageInfo;
+    [SerializeField] GameObject BuchInfo;
+    [SerializeField] GameObject NoteInfo;
     [SerializeField] PlayerController playerController;
     [SerializeField] GameObject Coin;
+    [SerializeField] BossTrigger bossTrigger;
 
 
 
@@ -30,18 +33,21 @@ public class TutorialSequences : MonoBehaviour
 
     //Achievements
     bool walkedLeft = false;
-    [SerializeField] bool walkedRight = false;
+    private bool walkedRight = false;
     bool jumped = false;
     bool doubleJumped = false;
     bool stomped = false;
     bool airJumped = false;
     bool printed = false;
+    bool bossTriggered = false;
     
     
     
 
     void Start()
-    {
+    { 
+        BuchInfo.SetActive(false);
+        NoteInfo.SetActive(false);
         Deactivate(Coin);
         int childCount = UI.transform.childCount;
         UIObjects = new GameObject[childCount];
@@ -50,7 +56,7 @@ public class TutorialSequences : MonoBehaviour
             UIObjects[a] = UI.transform.GetChild(a).gameObject;
             UIObjects[a].SetActive(false);
         }
-        tables = GameObject.FindGameObjectsWithTag("Ground");
+        // tables = GameObject.FindGameObjectsWithTag("Ground");
         for(int i = 4; i < tables.Length; i++)
         {
             deactivateTables(tables[i]);
@@ -66,7 +72,15 @@ public class TutorialSequences : MonoBehaviour
             {
                 tutorialInstructions.printWarningMessage(tutorialInstructions.ImmortalMessage);
             }
+            int amount = playerController.getPlayerCoinCount();
+            bool bossState = bossTrigger.getBossSpawnState();
             deathScreenController.Respawn();
+            bossTrigger.setBossSpawnState(bossState);
+            playerController.setPlayerCoinCount(amount);
+            if (bossTrigger.getBossSpawnState())
+            {
+                bossTrigger.spawnBoss();
+            }
             StartCoroutine(tutorialInstructions.ResetWarning());
 
         }
@@ -120,6 +134,7 @@ public class TutorialSequences : MonoBehaviour
         }
         if(IsSequence3)
         {
+            BuchInfo.SetActive(true);
             if(playerController.getPlayerCoinCount() == 10 && !printed)
             {
                 printed = true;
@@ -129,6 +144,14 @@ public class TutorialSequences : MonoBehaviour
             {
                 IsSequence3 = false;
                 Sequence4();
+            }
+        }
+        if(IsSequence4)
+        {
+            if(bossTrigger.getBossSpawnState() == true && bossTriggered == false)
+            {
+                bossTriggered = true;
+                tutorialInstructions.printSequence4();
             }
         }
     }
@@ -162,6 +185,8 @@ public class TutorialSequences : MonoBehaviour
 
     public void Sequence3()
     {
+        toggleArrowDown(false);
+        BuchInfo.SetActive(true);
         IsSequence3 = true;
         ArrowDown.transform.position = new Vector2(39f, 2.9f);
         toggleAbfrageInfo(false);
@@ -176,12 +201,13 @@ public class TutorialSequences : MonoBehaviour
 
     public void Sequence4()
     {
-        
-    }
-
-    public void Sequence5()
-    {
-        
+        BuchInfo.SetActive(false);
+        NoteInfo.SetActive(true);
+        IsSequence4 = true;
+        for (int i = 0; i < tables.Length; i++)
+        {
+            activateTables(tables[i]);
+        }
     }
 
     private IEnumerator ResetText()

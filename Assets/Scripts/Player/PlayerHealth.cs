@@ -30,11 +30,6 @@ public class PlayerHealth : MonoBehaviour
         heartAnimator.SetBool("IsBeating", false);       
     }
 
-    void Update()
-    {
-        
-    }
-
     public void Damage(int amount)
     {
         if (amount > 0)

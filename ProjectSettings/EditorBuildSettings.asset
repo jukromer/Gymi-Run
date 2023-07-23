@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Level/CharacterSelection.unity
     guid: 41299a1aa3b734c269935b594f41efaa
   - enabled: 1
+    path: Assets/Level/Tutorial.unity
+    guid: 411737f48c0297e4cba757be76227c88
+  - enabled: 1
     path: Assets/Level/Level1.unity
     guid: 390ef84575ed465499a0ed442aeeec98
   m_configObjects: {}

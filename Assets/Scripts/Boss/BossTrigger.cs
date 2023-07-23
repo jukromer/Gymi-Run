@@ -27,10 +27,15 @@ public class BossTrigger : MonoBehaviour
         if (collider.gameObject.CompareTag("Player") && getBossSpawnState() == false)
         {
             togglePlatforms(true);
-            Vector2 SpawnPos = new Vector2(playerTransform.position.x, playerTransform.position.y + 10);
-            Instantiate(Boss, SpawnPos, Quaternion.identity);
-            setBossSpawnState(true);
+            spawnBoss();
         }
+    }
+
+    public void spawnBoss()
+    {
+        Vector2 SpawnPos = new Vector2(playerTransform.position.x, playerTransform.position.y + 10);
+        Instantiate(Boss, SpawnPos, Quaternion.identity);
+        setBossSpawnState(true);
     }
 
     public void setBossSpawnState(bool state)
